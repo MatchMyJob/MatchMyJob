@@ -1,7 +1,7 @@
 function GenerarNavBuscador() {
-    const barraNav = document.createElement('nav');
+    const barraNav = document.createElement('div');
+    barraNav.classList ='wrapper';
     barraNav.innerHTML = `
-        <div class="wrapper">
             <div class="left">
                 <div class="logo">
                     <img src="./Images/logo.png" alt="Logo" />
@@ -35,7 +35,6 @@ function GenerarNavBuscador() {
                     </div>
                 </div>
             </div>
-        </div>
     `;
     return barraNav;
 }
