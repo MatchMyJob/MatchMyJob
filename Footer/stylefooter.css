@@ -1,0 +1,37 @@
+.footer .fbox-container{
+    background: var(--semiblack);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+.footer .fbox-container .fbox{
+    text-align: center;
+    flex: 1 1 20rem;
+}
+.footer .fbox-container .fbox h3{
+    display: inline;
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 
+}
+.footer .fbox-container .fbox ul li{
+    display: inline;
+    margin: auto;
+}
+.footer .fbox-container .fbox a{
+    display: inline;
+    color: var(--green);
+    font-size: 1.5rem;
+}
+
+.footer .fbox-container .fbox a:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+.footer .credit{
+    background: var(--semiblack);
+    text-align: center;
+    font-size: 1rem;
+    color: #ffffff6b;
+}
