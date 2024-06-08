@@ -12,7 +12,9 @@
     font-family: 'Poppins', sans-serif;
 
 }
-
+.input-text[type="password"] {
+    font-family: sans-serif; 
+}
 .home {
     background: url(/Images/MatchMyJob.png) no-repeat;
     background-size: cover;
@@ -259,6 +261,14 @@
         background-size:cover;
         background-position: 50%;
        
+    }
+    .icon {
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
     }
     .home .items .item .content h1 {
         font-size: 3rem;

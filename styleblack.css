@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 :root {
     --green: #80aa5b;
     --semiblack: #1b1f23;
@@ -15,31 +15,35 @@ body{
     background: #000;
 }
 
-nav .wrapper{
+nav .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     padding: 0.3rem 1rem;
     background: var(--semiblack);
-    box-shadow: 0 0.4rem var(--green);
 }
 
 nav .wrapper .left,
-nav .wrapper .right{
+nav .wrapper .right {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
 
-nav .wrapper .left{
+
+nav .wrapper .left {
     padding-left: 3rem;
     display: flex;
     gap: 15rem;
 }
+nav .wrapper .right{
+    display: flex;
+    gap: 1rem;
+}
 
-nav .wrapper .left .input{
+nav .wrapper .left .input {
     background: var(--sblack);
     width: 100%;
     padding: 0.5rem 0.8rem;
@@ -49,27 +53,28 @@ nav .wrapper .left .input{
     border-radius: 0.2rem;
 }
 
-nav .wrapper .left .input input[type='search']{
+nav .wrapper .left .input input[type='search'] {
     width: 30rem;
     border: none;
     background: transparent;
 }
 
-nav .wrapper .left .input input[type='search']::placeholder{
+nav .wrapper .left .input input[type='search']::placeholder {
     font-size: 1rem;
-    color: #fff;
+    color: rgb(199, 196, 196);
     font-weight: 100;
 }
 
-nav .wrapper .left .input i{
+nav .wrapper .left .input i {
     font-size: 1rem;
-    color: #fff
+    color: rgb(199, 196, 196);
 }
+
 
 nav .wrapper .right .home,
 nav .wrapper .right .jobs,
 nav .wrapper .right .me,
-nav .wrapper .right .work{
+nav .wrapper .right .work {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,6 +82,7 @@ nav .wrapper .right .work{
     gap: 0.5rem;
     cursor: pointer;
 }
+
 
 nav .wrapper .right .home,
 nav .wrapper .right .jobs:hover,
@@ -97,7 +103,7 @@ nav .wrapper .right .jobs i{
 
 
 nav .wrapper .right .me .down,
-nav .wrapper .right .work .down{
+nav .wrapper .right .work .down {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +111,8 @@ nav .wrapper .right .work .down{
     font-size: 1rem;
     color: #868d96;
 }
-nav .wrapper .right .me i:first-child{
+
+nav .wrapper .right .me i:first-child {
     background: #868d96;
     color: #000;
     width: 1.5rem;
@@ -117,7 +124,7 @@ nav .wrapper .right .me i:first-child{
     align-items: center;
 }
 
-.wrapper a{
+.wrapper a {
     text-decoration: none;
     font-size: 0.7rem;
     width: 7rem;
@@ -126,10 +133,19 @@ nav .wrapper .right .me i:first-child{
     color: #bcc3cc;
 }
 
-.wrapper a:hover{
+.wrapper a:hover {
     text-decoration: underline;
 }
-
+nav section .filter .search-filter{
+    margin-top: -10px;
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap: 1rem;
+    padding: 0.3rem 0.5rem;
+    background: var(--semiblack);
+    box-shadow: 0 0.4rem var(--green);
+}
 /* sidebar */
 
 .container{
