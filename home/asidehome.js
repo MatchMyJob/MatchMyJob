@@ -7,7 +7,7 @@ function GenerarAside() {
         <img src="./Images/dp.jpg" alt="" />
   
         <div class="profile">
-          <a href="#">Giuliano Mendoza</a>
+          <a href="#">Nombre taido del BACK</a>
           <small>Estudiante de Ingeniería informática
             TRAER DEL BACKEND LA DESCRIPCION DEL APLICANTE
           </small>

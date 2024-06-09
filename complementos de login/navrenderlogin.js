@@ -7,7 +7,6 @@ function renderNav() {
             </div>
             <div class="navigation">
                 <a href="#" class="btn-register">Crear cuenta</a>
-                <a href="#" class="btn-login">Ya tengo cuenta</a>
             </div>
     `;
     return nav;

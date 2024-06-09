@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
+
 }
 .footer .fbox-container .fbox{
     text-align: center;
@@ -12,7 +13,7 @@
 .footer .fbox-container .fbox h3{
     display: inline;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 1rem 
 }
 .footer .fbox-container .fbox ul li{
@@ -22,7 +23,8 @@
 .footer .fbox-container .fbox a{
     display: inline;
     color: var(--green);
-    font-size: 1.5rem;
+    font-size: 1rem;
+    text-decoration: none;
 }
 
 .footer .fbox-container .fbox a:hover {
