@@ -5,9 +5,6 @@ function renderNav() {
             <div class="logo-site">
                 <a href="#" class="logo-link"><img src="./images/logo.png" alt=""></a>
             </div>
-            <div class="navigation">
-                <a href="#" class="btn-register">Crear cuenta</a>
-            </div>
     `;
     return nav;
 }

@@ -2,37 +2,38 @@ function renderHeader() {
     const header = document.createElement('div');
     header.className = 'container'
     header.innerHTML = `
-            <div class="items">
-                <div class="item">
-                    <div class="content">
-                        <h1>"Conéctate con las oportunidades. Bienvenido al futuro del trabajo."</h1>
-                        <form id="loginForm" action="" method="post">
-                            <div class="line">
-                                <label for="email">Email</label>
-                                <div class="field">
-                                    <input type="text" id="email" class="input" placeholder="Ingrese su email aquí">
-                                </div>
-                            </div>
+            <div class="container-register">
+             <div class="form-content">
+                <h1 id="title">Registro</h1>
+                 <form id="registerForm">
+                    <div class="input-group">
+                        <div class="input-field" id="nameInput">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="rol" placeholder="ROL">
+                            <span id="rolError" class="error"></span>
+                        </div>
+                    <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="text" id="email" placeholder="Email">
                             <span id="emailError" class="error"></span>
-                            <div class="line">
-                                <label for="email">Password</label>
-                                <div class="field">
-                                    <input type="password" id="password" class="input" placeholder="Ingrese su contraseña aquí">
-                                    <span class="icon" id="togglePassword"><i class="fa-solid fa-eye-slash" id="eyeIcon"></i></span>
-                                </div>                                                                
-                            </div>
-                            <span id="passwordError" class="error"></span>
-                            <a href="#" class="forgot">
-                                Olvidaste tu contraseña?
-                            </a>
-
-                            <div class="btns">
-                                <button type="submit" class="btn-login">login</button>
-                            </div>
-                        </form>
                     </div>
+                    <div class="input-field">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="password" placeholder="Contraseña">
+                            <span class="icon" id="togglePassword"><i class="fa-solid fa-eye-slash" id="eyeIcon"></i></span>
+                            <span id="passwordError" class="error"></span>
+                    </div>
+                    
+                    
+                    
+                <div class="btn-field">
+                    <button id="signUp" type="submit">Registrar</button>
+                    <button id="signIn" type="submit" class="disable">Iniciar Sesión</button>
                 </div>
             </div>
+        </form>
+    </div>
+</div>
     `;
     return header;
 }
