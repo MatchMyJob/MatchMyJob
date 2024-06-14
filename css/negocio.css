@@ -1,0 +1,49 @@
+:root {
+    --green: #80aa5b;
+    --semiblack: #1b1f23;
+    --sblack: #38434f;
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #000;
+}
+.container {
+    background-color: var(--sblack);
+    padding: 20px;
+    box-shadow: 0 0 10px var(--green);
+    text-align: center;
+}
+h1 {
+    color: var(--green);
+}
+h2 {
+    color: var(--green);
+}
+p {
+    color: #b8b2b2;
+    line-height: 1.6;
+}
+.ul-negocio {
+    text-align: left;
+    margin: 20px 0;
+    padding: 0;
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #b8b2b2;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--green);
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.btn:hover {
+    background-color: #79985e;
+}

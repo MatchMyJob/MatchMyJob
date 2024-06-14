@@ -12,18 +12,18 @@
     font-family: 'Poppins', sans-serif;
 
 }
-.container {
+.container {    
     width: 100%;
     max-width: auto;
     margin: 0 auto;
     overflow: hidden;
     padding: 0rem 3rem;
-    box-shadow: 0 1rem var(--green);
+    
 }
 
 .navbar {
     background-color: var(--semiblack);
-    padding: 1rem 0rem;
+    padding: 1rem 0rem;    
 }
 
 .navbar .container {

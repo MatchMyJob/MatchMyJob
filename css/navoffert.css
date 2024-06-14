@@ -5,6 +5,7 @@ nav .wrapper {
     gap: 1rem;
     padding: 0.3rem 1rem;
     background: var(--semiblack);
+    box-shadow: 0 0 10px var(--green);
 }
 
 nav .wrapper .left {

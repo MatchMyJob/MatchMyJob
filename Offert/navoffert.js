@@ -25,7 +25,7 @@ function GenerarNavBuscador() {
         </a>
     </div>
     <div class="me">
-        <a href="perfil.html">
+        <a href="resume.html">
             <i class="fa-solid fa-user"></i>
             <div class="down">
                 <h6>Yo</h6>
@@ -33,7 +33,7 @@ function GenerarNavBuscador() {
         </a>
     </div>
     <div class="work">
-        <a href="negocios.html">
+        <a href="negocio.html">
             <i class="fa-solid fa-braille"></i>
             <div class="down">
                 <h6>Negocios</h6>

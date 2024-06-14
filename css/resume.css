@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
+    box-shadow: 0 0 10px var(--green);
 }
 
 .formulario_cv {
