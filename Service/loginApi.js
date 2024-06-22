@@ -16,6 +16,11 @@ const PostLogin = async (email, password) => {
 
         if (postResponse.ok) {
             postResult = await postResponse.json();
+            if (postResult.statusCode === 200 && postResult.result && postResult.result.token) {
+                localStorage.setItem('authToken', postResult.result.token);
+            } else {
+                postResult = { status: 'error', message: 'No se recibió un token válido' };
+            }
         } else if (postResponse.status === 400) {
             postResult = { status: 'error', message: 'Solicitud incorrecta' };
         } else {

@@ -14,10 +14,215 @@
 <body>
     <nav id="navPrincipal"></nav>
     <div class="container"></div>
+    <div id="experienceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">Añadir Experiencia</h2>
+            <form id="experienceForm">
+                <div class="form-group">
+                    <label for="companyName" class="center-label">Nombre de la Empresa</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobTitle" class="center-label">Puesto</label>
+                    <input type="text" id="jobTitle" name="jobTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobDescription" class="center-label">Descripción</label>
+                    <textarea id="jobDescription" name="jobDescription" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="startDate" class="center-label">Fecha de Inicio</label>
+                    <input type="date" id="startDate" name="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="endDate" class="center-label">Fecha de Fin</label>
+                    <div style="text-align: center;">
+                        <input type="checkbox" id="currentlyWorking" name="currentlyWorking">
+                        <label for="currentlyWorking">Actualmente trabajando aquí</label>
+                    </div>
+                    <input type="date" id="endDate" name="endDate">
+                </div>
+                <div class="form-group" style="text-align: center;">
+                    <button type="submit" class="btn">Guardar Experiencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p>¿Estás seguro que quieres eliminar esta experiencia?</p>
+            <div class="modal-buttons">
+                <button id="confirmDelete">Sí</button>
+                <button id="cancelDelete">No</button>
+            </div>
+        </div>
+    </div>
+    <div id="confirmationModalS" class="modal">
+        <div class="modal-content">
+            <p>¿Estás seguro que quieres eliminar este Estudio?</p>
+            <div class="modal-buttons">
+                <button id="confirmDeleteS">Sí</button>
+                <button id="cancelDeleteS">No</button>
+            </div>
+        </div>
+    </div>
+    <div id="confirmationModalSK" class="modal">
+        <div class="modal-content">
+            <p>¿Estás seguro que quieres eliminar este Skill?</p>
+            <div class="modal-buttons">
+                <button id="confirmDeleteSK">Sí</button>
+                <button id="cancelDeleteSK">No</button>
+            </div>
+        </div>
+    </div>
+    <div id="experienceModalm" class="modal">
+        <div class="modal-content">
+            <span class="closem">&times;</span>
+            <h2 class="modal-title">Modificar Experiencia</h2>
+            <form id="experienceFormE">
+                <div class="form-group">
+                    <label for="companyName" class="center-label">Nombre de la Empresa</label>
+                    <input type="text" id="companyNameE" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobTitle" class="center-label">Puesto</label>
+                    <input type="text" id="jobTitleE" name="jobTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobDescription" class="center-label">Descripción</label>
+                    <textarea id="jobDescriptionE" name="jobDescription" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="startDate" class="center-label">Fecha de Inicio</label>
+                    <input type="date" id="startDateE" name="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="endDate" class="center-label">Fecha de Fin</label>
+                    <div style="text-align: center;">
+                        <input type="checkbox" id="currentlyWorkingm" name="currentlyWorking">
+                        <label for="currentlyWorkingm">Actualmente trabajando aquí</label>
+                    </div>
+                    <input type="date" id="endDateE" name="endDate">
+                </div>
+                <div class="form-group" style="text-align: center;">
+                    <button type="submit" class="btn">Modificar Experiencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="educationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">Añadir Estudios</h2>
+            <form id="educationForm">
+                <div class="form-group">
+                    <label for="educationType">Tipo de estudio</label>
+                    <select id="educationType" name="educationType">
+                        <option value="1">Primaria</option>
+                        <option value="2">Secundaria</option>
+                        <option value="3">Terciario</option>
+                        <option value="4">Universitario</option>
+                        <option value="5">Posgrado</option>
+                        <option value="6">Master</option>
+                        <option value="7">Doctorado</option>
+                        <option value="8">Curso</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="educationDescription">Descripción</label>
+                    <textarea id="educationDescription" name="educationDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="educationStartDate">Fecha de inicio</label>
+                    <input type="date" id="educationStartDate" name="educationStartDate">
+                </div>
+                <div class="form-group">
+                    <label for="educationEndDate">Fecha de fin</label>
+                    <input type="date" id="educationEndDate" name="educationEndDate">
+                </div>
+                <div class="form-group">
+                    <label for="educationCurrent">
+                        <input type="checkbox" id="educationCurrent" name="educationCurrent">
+                        Actualmente estudias aquí
+                    </label>
+                </div>
+                <div id="form-group button-group">
+                    <button type="submit" class="btn">Guardar</button>
+                    <button type="button" class="btn cancel-btn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="educationModalm" class="modal">
+        <div class="modal-content">
+            <span class="closem">&times;</span>
+            <h2 class="modal-title">Modificar Estudios</h2>
+            <form id="educationFormm">
+                <div class="form-group">
+                    <label for="educationTypem">Tipo de estudio</label>
+                    <select id="educationTypem" name="educationType">
+                        <option value="1">Primaria</option>
+                        <option value="2">Secundaria</option>
+                        <option value="3">Terciario</option>
+                        <option value="4">Universitario</option>
+                        <option value="5">Posgrado</option>
+                        <option value="6">Master</option>
+                        <option value="7">Doctorado</option>
+                        <option value="8">Curso</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="educationDescriptionm">Descripción</label>
+                    <textarea id="educationDescriptionm" name="educationDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="educationStartDatem">Fecha de inicio</label>
+                    <input type="date" id="educationStartDatem" name="educationStartDate">
+                </div>
+                <div class="form-group">
+                    <label for="educationEndDatem">Fecha de fin</label>
+                    <input type="date" id="educationEndDatem" name="educationEndDate">
+                </div>
+                <div class="form-group">
+                    <label for="educationCurrentm">
+                        <input type="checkbox" id="educationCurrentm" name="educationCurrent">
+                        Actualmente estudias aquí
+                    </label>
+                </div>
+                <div id="form-group button-group">
+                    <button type="submit" class="btn">Guardar</button>
+                    <button type="button" class="btn cancel-btnm">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="skillModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">Añadir Skill</h2>
+            <form id="skillForm">
+                <div class="form-group">
+                    <label for="skillList">Selecciona una Skill</label>
+                    <select id="skillList" name="skillList" required>
+                    </select>
+                </div>
+                <div id="form-group button-group">
+                    <button type="submit" class="btn">Guardar</button>
+                    <button type="button" class="btn cancel-btn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <footer class="footer"></footer>
     <script type="module" src="/js/ResumeRender.js"></script>
     <script type="module" src="/Offert/navoffert.js"></script>
     <script type="module" src="/Footer/footer.js"></script>
+    <script type="module" src="/js/addexperience.js"></script>
+    <script type="module" src="/js/addskill.js"></script>
+    <script type="module" src="/js/addstudy.js"></script>
+    <script type="module" src="/js/modExperience.js"></script>
+    <script type="module" src="/js/modStudy.js"></script>
 </body>
 
 </html>

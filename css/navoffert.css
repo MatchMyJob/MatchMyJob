@@ -1,4 +1,4 @@
-nav .wrapper {
+.wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +8,7 @@ nav .wrapper {
     box-shadow: 0 0 10px var(--green);
 }
 
-nav .wrapper .left {
+.wrapper .left {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,39 +16,49 @@ nav .wrapper .left {
     padding-left: 3rem; 
 }
 
-nav .wrapper .right {
+.wrapper .right {
     display: flex;
     align-items: center;
     gap: 1rem;
-    
 }
-
 
 .right .jobs,
 .right .home,
 .right .me,
-.right .work{
+.right .work,
+.right .logout {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     cursor: pointer;
-
 }
+
 .right i {
     font-size: 24px;
     vertical-align: middle;
-
 }
-.right a {
+
+.right a,
+.right button {
     text-decoration: none!important; 
     display: flex; 
     flex-direction: column; 
     align-items: center;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
-.right a:hover {
+
+.right a:hover,
+.right button:hover {
     text-decoration: none; 
+    color: #bcc3cc;
 }
+
 .right .down i {
     font-size: 12px;
     margin: 0;
@@ -60,7 +70,8 @@ nav .wrapper .right {
     margin: 0;
     vertical-align: middle;
 }
-nav .wrapper .left .input {
+
+.wrapper .left .input {
     background: var(--sblack);
     width: 100%;
     padding: 0.5rem 0.8rem;
@@ -70,37 +81,42 @@ nav .wrapper .left .input {
     border-radius: 0.2rem;
 }
 
-nav .wrapper .left .input input[type='search'] {
+.wrapper .left .input input[type='search'] {
     width: 30rem;
     border: none;
     background: transparent;
 }
 
-nav .wrapper .left .input input[type='search']::placeholder {
+.wrapper .left .input input[type='search']::placeholder {
     font-size: 1rem;
     color: rgb(199, 196, 196);
     font-weight: 100;
 }
 
-nav .wrapper .left .input i {
+.wrapper .left .input i {
     font-size: 1rem;
     color: rgb(199, 196, 196);
 }
 
-nav .wrapper .right .home,
-nav .wrapper .right .jobs:hover,
-nav .wrapper .right .me .down:hover,
-nav .wrapper .right .work .down:hover {
+.wrapper .right .home,
+.wrapper .right .jobs:hover,
+.wrapper .right .me .down:hover,
+.wrapper .right .work .down:hover
+{
     color: #868d96;
 }
 
-nav .wrapper .right .jobs,
-nav .wrapper .right .work {
+.wrapper .right .jobs,
+.wrapper .right .work,
+.wrapper .right .logout {
     color: #868d96;
 }
+#logoutButton:hover{
+    color: red;
+}
 
-nav .wrapper .right .me .down,
-nav .wrapper .right .work .down {
+.wrapper .right .me .down,
+.wrapper .right .work .down {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +125,7 @@ nav .wrapper .right .work .down {
     color: #868d96;
 }
 
-nav .wrapper .right .me i:first-child {
+.wrapper .right .me i:first-child {
     background: #868d96;
     color: #000;
     width: 1.5rem;

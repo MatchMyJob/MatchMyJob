@@ -224,7 +224,13 @@ main .box .btn{
 main .box .btn:hover{
     background: #79985e;
 }
-
+.company-logo {
+    max-width: 65px;
+    max-height: 65px;
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
 
 /* Lado derecho*/
 
@@ -293,6 +299,7 @@ main .box .btn:hover{
     display: flex;
     flex-wrap: wrap;
 }
+
 
 @media(max-width:1366px) {
     :root {

@@ -40,10 +40,34 @@ function GenerarNavBuscador() {
             </div>
         </a>
     </div>
+    <div class="logout">
+                <button id="logoutButton">
+                    <i class="fa-solid fa-sign-out-alt"></i>
+                    <h6>Salir</h6>
+                </button>
+    </div>
 </div>
     `;
     return barraNav;
 }
-const contenedor = document.getElementById('navPrincipal');
-const barraNavegacion = GenerarNavBuscador();
-contenedor.appendChild(barraNavegacion);
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const contenedor = document.getElementById('navPrincipal');
+    const barraNavegacion = GenerarNavBuscador();
+    contenedor.appendChild(barraNavegacion);
+
+    document.getElementById('logoutButton').addEventListener('click', function() {
+        deleteAllCookies();
+        window.location.href = 'login.html';
+    });
+});

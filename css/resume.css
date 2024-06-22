@@ -3,11 +3,13 @@
     --semiblack: #1b1f23;
     --sblack: #38434f;
 }
-*{
+
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: #000;
 }
@@ -21,16 +23,82 @@ body {
 
 .formulario_cv {
     display: flex;
-    max-width: 1400px; 
+    max-width: 1400px;
     width: 100%;
     color: #fff;
 }
 
 .main-content {
-    flex: 1; 
-    padding-right: 20px; 
+    flex: 1;
+    padding-right: 20px;
+}
+.dFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px; 
+    background-color: var(--semiblack); 
+    margin-bottom: 10px; 
 }
 
+.dFlex .info {
+    flex: 1; 
+}
+
+.dFlex .actions {
+    display: flex;
+    align-items: center;
+}
+
+.lapiz-icon,
+.delete-icon,
+.deleteSK-icon,
+.deleteS-icon {
+    display: flex;
+    align-items: center;
+    color: var(--green);
+    cursor: pointer;
+    margin-left: 10px;
+}
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;     
+}
+.skill-item {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px; 
+    margin: 5px; 
+    border-radius: 5px; 
+    max-width: 100px;
+    color: #fff; 
+    background-color: #54594f; 
+}
+#confirmationModal{
+    display: none;
+}
+#confirmationModalS{
+    display: none;
+}
+#confirmationModalSK{
+    display: none;
+}
+.delete-icon,
+.deleteS-icon,
+.deleteSK-icon {
+    margin-left: 5px;
+    color: #fff; 
+    cursor: pointer; 
+}
+.lapiz-icon:hover {
+    color: orange;
+}
+.delete-icon:hover,
+.deleteS-icon:hover,
+.deleteSK-icon:hover {
+    color: red;
+}
 .sidebar {
     width: 300px;
     background-color: var(--semiblack);
@@ -39,15 +107,16 @@ body {
     color: #fff;
     overflow: hidden;
 }
+
 .sidebar h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: var(--green)
+    color: var(--green);
 }
 
 .postulaciones {
     margin-bottom: 15px;
-    color: #fff;  
+    color: #fff;
 }
 
 .user-form {
@@ -60,7 +129,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: var(--green)
+    color: var(--green);
 }
 
 .list_timeline li {
@@ -70,28 +139,33 @@ body {
 .list_timeline li:last-child {
     margin-bottom: 0;
 }
+
 .form_fields {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     background-color: var(--semiblack);
 }
+
 .photo_user {
-    margin-right: 20px; 
+    margin-right: 20px;
 }
+
 .user-photo {
-    width: 100px; 
+    width: 100px;
     height: 100px;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 
 .info_user {
     flex: 1;
 }
-.user-info {    
-    margin-bottom: 15px;     
+
+.user-info {
+    margin-bottom: 15px;
 }
-.user-info .user-name {    
+
+.user-info .user-name {
     margin-bottom: 15px;
 }
 
@@ -107,36 +181,45 @@ body {
     align-items: center;
     margin-bottom: 15px;
 }
-.list_timeline{
+
+.list_timeline {
     list-style-type: none;
     padding: 0;
 }
+
 .user-contact .cols .user-phone-icon {
-    margin-left: 20px; 
+    margin-left: 20px;
 }
+
 .user-contact .cols span {
     color: #ccc;
 }
-.dFlex {
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-}
+
 .lapiz-edit,
-.delete-edit {
-    margin-left: 10px; 
+.exp-edit,
+.exp-delete {
+    margin-left: 10px;
     display: flex;
     align-items: center;
 }
 
 .lapiz-icon,
-.delete-icon {
+.delete-icon,
+.deleteS-icon,
+.deleteSK-icon {
     display: flex;
-    align-items: center; 
+    align-items: center;
     color: var(--green);
     cursor: pointer;
 }
-.btn{
+
+.btn,
+#confirmDelete,
+#cancelDelete,
+#confirmDeleteS,
+#cancelDeleteS,
+#cancelDeleteSK,
+#confirmDeleteSK {
     border: none;
     background: var(--green);
     padding: 0.6rem 1rem;
@@ -147,7 +230,137 @@ body {
     font-size: 1rem;
     transition: 0.3s all ease;
 }
-
-.btn:hover{
+#confirmationModal,
+#confirmationModalS,
+#confirmationModalSK{
+    color: #fff;
+}
+.btn:hover,
+#confirmDelete:hover,
+#cancelDelete:hover,
+#confirmDeleteS:hover,
+#cancelDeleteS:hover,
+#cancelDeleteSK:hover,
+#confirmDeleteSK:hover {
     background: #79985e;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--semiblack);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--green);
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 2px 4px var(--green);
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.close,
+.closem {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus,
+.closem:hover,
+.closem:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group label {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select,
+.form-group input[type="date"] {
+    width: 100%;
+    max-width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5rem;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.form-group button:hover {
+    background-color: #79985e;
+}
+
+.form-group input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+.form-group input[type="checkbox"] + label {
+    font-size: 14px;
+    color: #888;
+}
+
+#form-group.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#form-group.button-group button {
+    margin-top: 0;
 }

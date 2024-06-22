@@ -1,20 +1,59 @@
-function GenerarMain() {
-    const MainContainer = document.createElement('div');
-    MainContainer.className = 'main_section';
-    MainContainer.innerHTML = `<div id="close"><i class="fa-solid fa-xmark"></i></div>
-                <div class="event">
-                    <h3>Principales empleos que te recomendamos</h3>
+import OffertApi from "../Service/OffertApi.js";
+import ResumeApi from "../Service/ResumeApi.js";
+
+const matchSkills = (offerSkills, applicantSkills) => {
+    return offerSkills.some(skill => applicantSkills.includes(skill));
+};
+
+async function GenerarMain() {
+    try {
+        const resume = await ResumeApi.GetResume();
+        const applicantSkills = resume.skills.map(skill => skill.skillId);
+        const response = await OffertApi.GetFilter(null, null, null, null, null, null, null, applicantSkills, null, null, null, null, 0, 3);
+        const matchingOffers = Array.isArray(response.result.data) ? response.result.data : [];
+        
+        const MainContainer = document.createElement('div');
+        MainContainer.className = 'main_section';
+
+        if (matchingOffers.length === 0) {
+            console.log("No hay ofertas que coincidan con las habilidades del aplicante.");
+            return MainContainer;
+        }
+
+        matchingOffers.forEach(offer => {
+            const maxDescriptionLength = 390;
+            let shortDescription = offer.title.slice(0, maxDescriptionLength);
+            if (offer.title.length > maxDescriptionLength) {
+                shortDescription += '...';
+            }
+
+            const offerContainer = document.createElement('div');
+            offerContainer.className = 'box';
+            offerContainer.innerHTML = `
+                <div class="content fbox-container">
+                    <img src="${offer.company.logo}" alt="${offer.company.businessName} logo" class="company-logo">
+                    <div class="text-content">
+                        <h2><a href="">${offer.title}</a></h2>
+                        <p><a href="">${offer.company.businessName}</a> - ${offer.ubication.province}</p>
+                        <p>${shortDescription}</p>
+                    </div>
                 </div>
-                <div class="box">
-                    <div class="content">
-                        <h2><a href="">TITULO TRAIDO DEL BACKEND</a></h2>
-                        <p><a href="">EMPRESA TRAIDA DEL BACKEND</a> - CIUDAD TRAIDA DEL BACKEND </p>
-                        <p>DESCRIPCION DEL BACKEND</p>
-                    </div>                  
-                <button class="btn">Learn more</button>               
-            </div>`;
-    return MainContainer
+                <button class="btn">Learn more</button>
+            `;
+            MainContainer.appendChild(offerContainer);
+        });
+
+        return MainContainer;
+    } catch (error) {
+        console.error('Error al generar main:', error);
+        return null;
+    }
 }
-const contenedor = document.querySelector('.main-container');
-const main = GenerarMain();
-contenedor.appendChild(main);
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const contenedor = document.querySelector('.main-container');
+    const main = await GenerarMain();
+    if (main) {
+        contenedor.appendChild(main);
+    }
+});

@@ -1,4 +1,7 @@
-function GenerarAside() {
+import ApplicantApi from "../Service/ApplicantApi.js";
+import ResumeApi from "../Service/ResumeApi.js";
+
+async function GenerarAsideInicial(applicante, Studys) {
     const asidecontainer = document.createElement('div');
     asidecontainer.className = 'aside-div-container';
     const newaside = document.createElement('div');
@@ -7,38 +10,87 @@ function GenerarAside() {
         <img src="./Images/dp.jpg" alt="" />
   
         <div class="profile">
-          <a href="#">Nombre taido del BACK</a>
-          <small>Estudiante de Ingeniería informática
-            TRAER DEL BACKEND LA DESCRIPCION DEL APLICANTE
-          </small>
-          <hr id="profile">
+            <a href="./resume.html">${applicante.name} ${applicante.surname}</a>
+            <small>
+                Descripcion: ${applicante.minimalDescription}
+                <br>
+                Mail: ${applicante.email}
+                <br>
+                Linkedin: ${applicante.linkedin}
+                <br>
+                Fecha de Nacimiento: ${applicante.birthDate}
+            </small>
+            <hr id="profile">
         </div>
         <div class="view">
-            <div class="views">
-                <h6>STUDY DEL APLICANTE DEL BACKEND</h6>
-            </div>
-            <div class="views">
-                <h6>ESTADO DESDE EL BACKEND</h6>
-            </div>
+               ${Studys.map(study => `
+                <div class="views">
+                    <h6>${study.studyTypeName}</h6>
+                    <h6>Inicio:${study.startDate} - Fin: ${study.endDate}</h6>
+                </div>
+            `).join('')}
             <hr id="view">
         </div>
         <div class="items">
-          <i class="fa-solid fa-bookmark"></i>
-          <h6>Mis cosas</h6>
+            <i class="fa-solid fa-bookmark"></i>
+            <h6>Mis cosas</h6>
         </div>`;
+    asidecontainer.appendChild(newaside);
+
+    return asidecontainer;
+}
+
+async function GenerarEstudiosRecientes(Studys) {
     const asidestudy = document.createElement('div');
     asidestudy.className = 'recent_jobs';
     asidestudy.innerHTML = `<div class="recent">
-                                <h6>Estudios recientes</h6>
+                            <h6>Estudios recientes</h6>
+                            ${Studys.map(study => `
                                 <div class="one">
                                     <i class="fa-solid fa-book"></i>
-                                    <h6>Crear DINAMICAMENTE LOS STUDIO SEGUN BACKEND</h6>
+                                    <h6>${study.studyTypeName}</h6>
                                 </div>
+                            `).join('')}
                             </div>`;
-    asidecontainer.appendChild(newaside);
-    asidecontainer.appendChild(asidestudy);
-    return asidecontainer;
+    return asidestudy;
 }
-const contenedor = document.querySelector('.aside-container');
-const Aside = GenerarAside();
-contenedor.appendChild(Aside);
+
+async function GenerarAside() {
+    const response = await ApplicantApi.Getme();
+    const applicante = response.result;
+    const responsecv = await ResumeApi.GetResume();
+    const resume = responsecv;
+    
+    let Studys = resume.studys.map(study => ({
+        studyId: study.studyId,
+        studyTypeId: study.studyType.studyTypeId,
+        studyTypeName: study.studyType.name,
+        description: study.description,
+        startDate: formatDate(study.startDate),
+        endDate: formatDate(study.endDate)
+    }));
+
+    const contenedor = document.querySelector('.aside-container');
+    const recentJobsSection = contenedor.querySelector('.recent_jobs');
+    if (recentJobsSection) {
+        recentJobsSection.remove();
+    }
+    if (!contenedor.querySelector('.aside-div-container')) {
+        const Aside = await GenerarAsideInicial(applicante,Studys);
+        contenedor.appendChild(Aside);
+    }
+    const EstudiosRecientes = await GenerarEstudiosRecientes(Studys);
+    contenedor.appendChild(EstudiosRecientes);
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await GenerarAside();
+});
+
+function formatDate(dateString) {
+    return new Date(dateString).toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    });
+}

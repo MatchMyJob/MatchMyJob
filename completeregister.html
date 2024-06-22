@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/complementos de login/stylenav.css">
+    <link rel="stylesheet" href="/Footer/stylefooter.css">
+    <link rel="stylesheet" href="/completerregister.css">
+    <title>Register</title>
+</head>
+<body>
+    <nav class="navbar"></nav>
+    <div class="container-form">
+        <h1>Termine de completar su registro</h1>
+        <form id="completeForm">
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="cityId">Ciudad</label>
+                    <select id="citySelect" name="citySelect">
+                        <option value="">Selecciona una ciudad</option>
+                        <option value="60218">Chascomús</option>
+                        <option value="60274">Florencio Varela</option>
+                        <option value="60028">Almirante Brown</option>
+                        <option value="60091">Berazategui</option>z
+                        <option value="22007">Comuna 1</option>
+                        <option value="22014">Comuna 2</option>
+                        <option value="140742">Villa Carlos Paz</option>
+                        <option value="140861">Río Cuarto</option>
+                    </select>
+                    <span id="cityIdError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="dni">DNI</label>
+                    <input type="text" id="dni" placeholder="DNI">
+                    <span id="dniError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="phone">Telefono</label>
+                    <input type="text" id="phone" placeholder="54-1141462757">
+                    <span id="phoneError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="text" id="linkedin" placeholder="LinkedIn">
+                    <span id="linkedinError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email">
+                    <span id="emailError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Nombre">
+                    <span id="nameError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="surname">Apellido</label>
+                    <input type="text" id="surname" placeholder="Apellido">
+                    <span id="surnameError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="minimalDescription">Breve Descripcion</label>
+                    <input type="text" id="minimalDescription" placeholder="Breve Descripcion">
+                    <span id="minimalDescriptionError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="birthDate">Fecha de Nacimiento</label>
+                    <input type="date" id="birthDate">
+                    <span id="birthDateError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="description">Presentación</label>
+                    <textarea id="description" placeholder="Presentación que impactara en tu curriculum"></textarea>
+                    <span id="descriptionError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="minimumSalary">Salario Minimo</label>
+                    <input type="number" id="minimumSalary" placeholder="Salario Minimo">
+                    <span id="minimumSalaryError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="image">Image URL</label>
+                    <input type="text" id="image" placeholder="Image URL">
+                    <span id="imageError" class="error"></span>
+                </div>
+                <div class="btn-field">
+                    <button id="completeRegistration" type="submit">Completar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <section class="footer"></section>
+    <script type="module" src="./complementos de login/navrenderlogin.js"></script>
+    <script type="module" src="/complementos de login/registerapplicant.js"></script>
+    <script type="module" src="./Footer/footer.js" ></script>    
+</body>
+</html>
