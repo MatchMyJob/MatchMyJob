@@ -1,19 +1,21 @@
-function GenerarNavBuscador() {
+export function header() {
     const barraNav = document.createElement('div');
     barraNav.classList = 'wrapper';
     barraNav.innerHTML = `
+    <link rel="stylesheet" href="/js/Components/header/navoffer.css">   
+
             <div class="left">
     <div class="logo">
-        <img src="./Images/logo.png" alt="Logo" />
+        <img src="../Images/logo.png" alt="Logo" />
     </div>
     <div class="input">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" placeholder="Buscar" />
+        <input id="searchOffer" type="search" placeholder="Buscar" />
     </div>
 </div>
 <div class="right">
     <div class="jobs">
-        <a href="offert.html">
+        <a href="offer.html">
             <i class="fa-solid fa-suitcase"></i>
             <h6>Empleos</h6>
         </a>
@@ -45,5 +47,5 @@ function GenerarNavBuscador() {
     return barraNav;
 }
 const contenedor = document.getElementById('navPrincipal');
-const barraNavegacion = GenerarNavBuscador();
+const barraNavegacion = header();
 contenedor.appendChild(barraNavegacion);

@@ -1,9 +1,10 @@
-function renderFooter() {
+export function footer() {
     const footerContainer = document.createElement('div');
     footerContainer.className = 'footer-container';
     const footer = document.createElement('div');
     footer.className = 'fbox-container';
-    footer.innerHTML = `    
+    footer.innerHTML = ` 
+    <link rel="stylesheet" href="/js/Components/footer/footer.css">   
         <div class="fbox">
             <h3>General</h3><br>
             <ul>
@@ -36,5 +37,5 @@ function renderFooter() {
     return footerContainer;
 }
 const contenedor = document.querySelector('.footer');
-const footerLogin = renderFooter();
+const footerLogin = footer();
 contenedor.appendChild(footerLogin);

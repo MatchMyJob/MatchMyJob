@@ -1,0 +1,281 @@
+/* Filtro Container */
+.filter-container {
+    background: var(--semiblack);
+    box-shadow: 0 0.4rem var(--green);
+    padding: 0.3rem 0.5rem;
+}
+
+.search-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.search-filter button {
+    background: var(--sblack);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-filter button:hover {
+    background: var(--green);
+}
+
+.search-filter i {
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #2c2c2c;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+}
+
+.modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 1rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.apply-button {
+    background-color: var(--green);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.apply-button:hover {
+    background-color: #45a049;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: absolute;
+    background-color: #333;
+    border: none; /* Removemos el borde */
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadimos sombra para mejorar la visibilidad */
+}
+
+.dropdown-item {
+    padding: 9px 16px;
+    cursor: pointer;
+    color: white;
+    border-bottom: 1px solid #555; /* Añadimos borde inferior */
+}
+
+.dropdown-item:last-child {
+    border-bottom: none; /* Removemos el borde del último elemento */
+}
+
+.dropdown-item:hover {
+    background-color: var(--green);
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #2c2c2c;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 1rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.modal-header input {
+    width: 99%;
+    padding: 0.5rem;
+    margin-left: 1px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+}
+
+.apply-button {
+    background-color: var(--green);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.apply-button:hover {
+    background-color: #45a049;
+}
+
+.close {
+    margin-left: 0.5em;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Scrollable List */
+.scrollable {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.modal-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+}
+
+/* Scrollbar Styles */
+.filter-container::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar,
+.dropdown::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.filter-container::-webkit-scrollbar-track,
+.modal-body::-webkit-scrollbar-track,
+.dropdown::-webkit-scrollbar-track {
+    background: var(--semiblack); /* Color de fondo de la barra */
+}
+
+.filter-container::-webkit-scrollbar-thumb,
+.modal-body::-webkit-scrollbar-thumb,
+.dropdown::-webkit-scrollbar-thumb {
+    background-color: #aaa; /* Color de la barra de desplazamiento */
+    border-radius: 4px; /* Borde redondeado de la barra */
+}
+
+/* Aumentar el tamaño del checkbox */
+.modal-item input[type="checkbox"] {
+    margin-left: 0.6rem;
+    transform: scale(2.5);
+    margin-right: 1em; /* Espacio entre el checkbox y la etiqueta */
+    position: relative;
+    accent-color: var(--green); /* Cambiar el color del checkbox */
+}
+
+
+#modeModal input[type="checkbox"], #dateModal input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color:var(--black);
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s;
+}
+
+#modeModal input[type="checkbox"]:checked, #dateModal  input[type="checkbox"]:checked {
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+
+

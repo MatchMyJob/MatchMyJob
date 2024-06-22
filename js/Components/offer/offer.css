@@ -1,0 +1,99 @@
+#main_section {
+    height: 100vh;
+}
+
+main .box .content {
+    padding: 0.5rem 0.5rem;
+}
+
+main .box .content p {
+    font-weight: 100;
+    color: #868d96;
+}
+
+main .box .content p a {
+    text-decoration: none;
+    color: #868d96;
+}
+
+main .box .content h2 a {
+    text-decoration: none;
+    color: #ebe1e1;
+}
+
+.offer-job-det {
+    display: flex;
+    flex-direction: column; 
+}
+
+.container_offer {
+    background: var(--semiblack);
+    height: 100%; /* Ajustar según sea necesario */
+    overflow-y: auto; /* Habilitar scroll vertical */
+}
+
+.container_offer::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.container_offer::-webkit-scrollbar-track {
+    background: var(--semiblack); /* Color de fondo de la barra */
+}
+
+.container_offer::-webkit-scrollbar-thumb {
+    background-color: #aaa; /* Color de la barra de desplazamiento */
+    border-radius: 4px; /* Borde redondeado de la barra */
+}
+
+.description-title {
+    margin-bottom: 10px;
+    color: rgb(199, 196, 196)
+    
+}
+
+.description-title h2 {
+    color: var(--green);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.company-img {
+    display: flex; 
+    align-items: center; 
+    margin-left: 0; 
+}
+.company-img span{
+    color: #fff;
+}
+
+.company-img img {
+    max-width: 40px;
+    border-radius: 20%;
+    height: auto;
+    margin-right: 10px; 
+}
+
+.company-img {
+    margin: 1em 1em 1em 0
+}
+
+.ember-jobs .ember-a span{
+    color: var(--green);
+    font-size: 1.6em;
+    text-decoration: none;
+}
+
+.other-requirements {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+}
+
+.other-requirements h3 {
+    color: var(--green);
+    padding-bottom: 10px;
+}
+
+.other-requirements span {
+    padding-bottom: 5px;
+}
