@@ -3,6 +3,7 @@ import { offer } from "../Components/offer/offer.js";
 import { getOfferByFilters, getOfferById } from "../Service/offerQuery.js";
 import { offerClick } from "./clickAction.js";
 import { loaderOfferPreview } from "../Components/loaderOfferPreview/loaderOfferPreview.js";
+import { pagination } from "../Components/pagination/pagination.js";
 
 
 
@@ -11,16 +12,14 @@ export async function offerSearchWithFilters(){
 
     buttons.forEach(button => {
         button.addEventListener('click', async () => {
-            await offerSearch(); 
+            await offerSearch(getCurrentPage(), 10); // Usar la página actual guardada
         });
     });
 }
 
 
-export async function offerSearch() {
-
+export async function offerSearch(pageNumber = 1, pageSize = 10) {
     let title = document.querySelector('#searchOffer').value;
-    console.log("hola" + title);
     let companies = JSON.parse(localStorage.getItem("selectedCompanies")) || [];
     let jobOfferMode = localStorage.getItem("selectedMode");
     let jobOfferType = null;
@@ -32,33 +31,38 @@ export async function offerSearch() {
     let availabilityChangeOfResidence = null;
     let from = getDate();
     let to = null;
-    let pageNumber = 1;
-    let pageSize = 10;
-
 
     let sidebar = document.getElementById("offer-previews");
     sidebar.innerHTML = loaderOfferPreview();
 
     let offers = await getOfferByFilters(
-                            title, 
-                            companies, 
-                            jobOfferMode, 
-                            jobOfferType, 
-                            provinces, 
-                            studyType, 
-                            categories, 
-                            skills, 
-                            availabilityToTravel, 
-                            availabilityChangeOfResidence, 
-                            from, 
-                            to, 
-                            pageNumber, 
-                            pageSize
-                        );
+        title, 
+        companies, 
+        jobOfferMode, 
+        jobOfferType, 
+        provinces, 
+        studyType, 
+        categories, 
+        skills, 
+        availabilityToTravel, 
+        availabilityChangeOfResidence, 
+        from, 
+        to, 
+        pageNumber, 
+        pageSize
+    );
+
     sidebar.innerHTML = "";
-    (offers.result.data).forEach((offer) => {
+    offers.result.data.forEach((offer) => {
         sidebar.innerHTML += offerPreview(offer);
     });
+
+    sidebar.innerHTML += pagination();
+
+    // Guardar la página actual en localStorage
+    localStorage.setItem('currentPage', pageNumber);
+
+    renderPaginationControls(pageNumber, offers.result.metaData.totalPages);
 
 
     function getDate() {
@@ -100,6 +104,32 @@ export async function offerSearch() {
     
 }
 
+function getCurrentPage() {
+    return parseInt(localStorage.getItem('currentPage')) || 1;
+}
+
+
+function renderPaginationControls(currentPage, totalPages) {
+    const paginationDiv = document.getElementById('pagination');
+
+    // Vaciar el contenido anterior
+    paginationDiv.innerHTML = '';
+
+    // Crear botones de paginación
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = 'page-button';
+        if (i === currentPage) {
+            pageButton.classList.add('active');
+        }
+        pageButton.addEventListener('click', () => {
+            offerSearch(i, 10); // Cargar la página seleccionada
+        });
+
+        paginationDiv.appendChild(pageButton);
+    }
+}
 
 
 export const selectByOffer = async () => {
