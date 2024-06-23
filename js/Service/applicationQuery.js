@@ -1,5 +1,6 @@
 const urlBase = "https://localhost:7291/api/applicant/Application";
 
+
 export const getApplicationById = async (applicationId) => {
 
     const url = `${urlBase}/${applicationId}`;

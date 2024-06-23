@@ -5,6 +5,7 @@ import { offerClick } from "./clickAction.js";
 import { loaderOfferPreview } from "../Components/loaderOfferPreview/loaderOfferPreview.js";
 import { pagination } from "../Components/pagination/pagination.js";
 import { loaderOffer } from "../Components/loaderOffer/loaderOffer.js";
+import { registerApplication } from "../Service/applicationCommand.js";
 
 
 
@@ -133,6 +134,21 @@ export const selectByOffer = async () => {
         }
     });
 }
+
+
+
+export async function applyToOffer() {
+    let offer = document.getElementById("main_section");
+
+    offer.addEventListener('click', async e => {
+        if(e.target.matches("#applyOffer")){
+            let offerId = e.target.getAttribute("offerId");
+            await registerApplication(offerId);
+        }
+    });
+}
+
+
 
 function getDate() {
     let from = null;

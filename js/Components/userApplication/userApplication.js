@@ -6,9 +6,9 @@ export const userApplication = (data) => {
         const diffTime = Math.abs(today - date);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-        if (diffDays === 0) {
+        if (diffDays === 1) {
             return "hoy";
-        } else if (diffDays === 1) {
+        } else if (diffDays === 2) {
             return "ayer";
         } else if (diffDays <= 7) {
             return `hace ${diffDays} días`;

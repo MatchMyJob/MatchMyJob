@@ -57,8 +57,7 @@ export const offer = (data) => {
                                         </span>
                                     </li>
                                 </ul>
-                                <button class="btn">Aplicar</button>
-                                <button class="btn">Guardar</button>
+                                <button id="applyOffer" offerId="${data.result.offerId}" class="btn">Aplicar</button>
                             </div>
                         </div>
                     </div>
