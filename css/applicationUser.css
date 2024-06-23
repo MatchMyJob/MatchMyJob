@@ -381,9 +381,13 @@ h1 {
 }
 
 .status span {
-    background-color: var(--sblack);
+    background-color: #6d6363;
     padding: 5px 10px;
     font-size: 0.9em;
 }
 
+
+.btn {
+    display: none;
+}
 

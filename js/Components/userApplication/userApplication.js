@@ -28,7 +28,10 @@ export const userApplication = (data) => {
 
     // Función para formatear la cantidad de postulaciones
     const formatApplicationQuantity = (quantity) => {
-        if (quantity === 1) {
+        if (quantity === 0 || quantity === null) {
+            return "1 candidato postulado";
+        }
+        else if (quantity === 1) {
             return "1 candidato postulado";
         } else {
             return `+ ${quantity} candidatos postulados`;
