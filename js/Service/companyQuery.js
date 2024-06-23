@@ -9,7 +9,7 @@ export const getCompanyByFilters = async (
     pageSize
     ) => {
     var url = `${urlBase}?`;
-
+        
     if(name)
     {
         url += `name=${name}`;

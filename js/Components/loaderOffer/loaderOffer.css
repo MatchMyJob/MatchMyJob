@@ -1,0 +1,76 @@
+/* Estilos para el esqueleto de carga */
+#skeleton-loader .skeleton-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.skeleton-img {
+    width: 70px;
+    height: 70px;
+    background: #3a3a3a; /* Color gris oscuro */
+    border-radius: 10%;
+    margin-right: 20px;
+}
+
+.skeleton-content {
+    flex: 1;
+}
+
+.skeleton-title, .skeleton-subtitle, .skeleton-text {
+    height: 16px;
+    background: #3a3a3a; /* Color gris oscuro */
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.skeleton-title {
+    width: 80%;
+}
+
+.skeleton-subtitle {
+    width: 60%;
+}
+
+.skeleton-text {
+    width: 40%;
+}
+
+/* Animación de esqueleto */
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton-item .skeleton-img,
+.skeleton-item .skeleton-title,
+.skeleton-item .skeleton-subtitle,
+.skeleton-item .skeleton-text {
+    animation: skeleton-loading 1.5s infinite linear;
+    background: linear-gradient(90deg, #2c2c2c 25%, #3a3a3a 50%, #2c2c2c 75%);
+    background-size: 200px 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
