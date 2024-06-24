@@ -1,3 +1,4 @@
+import { selectOfferByApplication } from "../../EventFunction/companyApplicationAction.js";
 import { updateApplication } from "../../Service/applicationCommand.js";
 
 export const companyApplication = (data) => {
@@ -36,24 +37,26 @@ export const companyApplication = (data) => {
             <div class="status">
                 <span>${data.applicationStatusType}</span>
                 <span>${formatDate(data.applicationDate)}</span>
-                <select class=onchange="handleChange(event)">
-                    <option statusId="" value="" ${data.applicationStatusType === 'en proceso' ? 'selected' : ''}>Cambiar estado</option>
-                    <option statusId="3" value="en proceso">En proceso</option>
-                    <option statusId="4" value="finalista">Finalizado</option>
-                    <option statusId="5" value="finalizado">Finalista</option>
+                <select onchange="handleChange(event)">
+                    <option statusId="" value="">Cambiar estado</option>
+                    <option statusId="2" value="en proceso">En proceso</option>
+                    <option statusId="3" value="finalista">Finalizado</option>
+                    <option statusId="4" value="finalizado">Finalista</option>
                 </select>
             </div>
         </div>
     `;
-};
+}
 
 window.handleChange = async function(event) {
     const newStatus = event.target.options[event.target.selectedIndex].getAttribute('statusId');
-    const offerId = event.target.closest('.job-card').getAttribute('applicationId');
-    const response = await updateApplication(offerId, newStatus);
-    
-    if (response.isSuccess) {
-        console.log(`Estado actualizado a: ${newStatus} para la oferta ${offerId}`);
+    const statusId = event.target.closest('.job-card').getAttribute('applicationId');
+    const response = await updateApplication(statusId, newStatus);
+    if (response.isSuccess && response.result.result.applicationStatusType) {
+        console.log(`Estado actualizado a: ${newStatus} para la oferta ${statusId}`);
+        // Eliminar la tarjeta del DOM
+        const jobCard = event.target.closest('.job-card');
+        jobCard.parentNode.removeChild(jobCard);
     } else {
         console.error(`Error actualizando el estado: ${response.statusCodeMessage.message}`);
     }

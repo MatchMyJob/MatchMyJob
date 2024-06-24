@@ -55,7 +55,7 @@ export const registerApplication = async (offerId) => {
 export const updateApplication = async (applicationId, statusTypeId) => {
     const url = `${urlBase}/${applicationId}`;
     const authToken = sessionStorage.getItem("authToken");
-
+    console.log(url)
     // Datos para enviar en el cuerpo de la solicitud POST
     const requestBody = {
         applicationStatusTypeId: statusTypeId
