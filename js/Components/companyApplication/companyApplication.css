@@ -1,0 +1,101 @@
+.ember-views {
+    display: flex;
+    align-items: center;
+}
+
+.ember-views .ember-jobs {
+    margin-left: 20px;
+}
+
+ul .ember-view {
+    padding: 20px 30px;
+    margin: 10px 0;
+    position: relative;
+    transition: background-color 0.3s; /* Agregamos transición para suavizar el cambio de color de fondo */
+    cursor: pointer;
+}
+
+ul .ember-view:hover {
+    background: var(--sblack);
+}
+
+.ember-views .ember-img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.ember-img {
+    display: flex; 
+    align-items: center; 
+    margin-left: 0; 
+}
+.ember-img span{
+    color: #fff;
+}
+.ember-img img {
+    max-width: 70px;
+    border-radius: 20%;
+    height: auto;
+    margin-right: 10px; 
+}
+
+.ember-jobs a {
+    color: var(--green);
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+aside .sidebar ul .ember-view .ember-views .ember-jobs a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+aside .sidebar ul .ember-view .ember-views .ember-jobs .ember-span {
+    color: rgb(199, 196, 196);
+    text-decoration: none;
+}
+
+aside .sidebar ul .ember-view .ember-views .ember-jobs .ember-p {
+    color: gray;
+    text-decoration: none;
+}
+
+
+ul .ember-view {
+    padding: 20px 30px;
+    margin: 10px 0;
+    position: relative;
+}
+
+.ember-views .ember-jobs {
+    margin-left: 20px;
+}
+
+.ember-jobs .job-title {
+    margin-bottom: 10px; /* Espacio abajo del título */
+}
+
+.ember-jobs .ember-span,
+.ember-jobs .ember-p {
+    margin-bottom: 8px; /* Espacio abajo de la empresa y provincia */
+}
+
+ul .ember-view.active {
+    background: var(--sblack);
+    outline: none; /* Quitamos el borde de enfoque por defecto */
+}
+
+/* Clase para ocultar las tarjetas inicialmente */
+.hidden-card {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Mostrar la tarjeta después de aplicar estilos */
+.visible-card {
+    opacity: 1;
+}
+
+select {
+    padding-left: 4em;
+}

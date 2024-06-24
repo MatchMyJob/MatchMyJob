@@ -1,0 +1,152 @@
+#main_section {
+    height: 100vh;
+}
+
+main .box .content {
+    padding: 0.5rem 0.5rem;
+}
+
+main .box .content p {
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    color: #ebe1e1;
+}
+
+main .box .content p a {
+    text-decoration: none;
+    color: #868d96;
+}
+
+main .box .content h2 a {
+    text-decoration: none;
+    color: #868d96;
+}
+
+.user-det {
+    display: flex;
+    flex-direction: column; 
+}
+
+.container_user_profile {
+    background: var(--semiblack);
+    height: 100%; /* Ajustar según sea necesario */
+    overflow-y: auto; /* Habilitar scroll vertical */
+}
+
+.container_user_profile::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.container_user_profile::-webkit-scrollbar-track {
+    background: var(--semiblack); /* Color de fondo de la barra */
+}
+
+.container_user_profile::-webkit-scrollbar-thumb {
+    background-color: #aaa; /* Color de la barra de desplazamiento */
+    border-radius: 4px; /* Borde redondeado de la barra */
+}
+
+.user-description {
+    margin-bottom: 1em;
+    color: rgb(199, 196, 196);
+}
+
+.user-description h3 {
+    margin-bottom: 0.8em;
+    color: var(--green);
+}
+
+#about-description {
+    color: #868d96;
+}
+
+.user-img {
+    display: flex; 
+    align-items: center; 
+    margin-left: 0; 
+}
+
+.user-img span {
+    color: #fff;
+}
+
+.user-img img {
+    max-width: 150px;
+    border-radius: 5%;
+    height: auto;
+    margin-right: 10px; 
+}
+
+.user-img {
+    margin: 1em 1em 1em 0;
+}
+
+.contact-info {
+    padding-left: 0.3em;
+}
+
+#nameSurname {
+    color: var(--green);
+    font-size: 1.6em;
+}
+
+#minimalDescription, #ubication {
+    font-size: 0.8em;
+    color: #868d96;
+    padding-bottom: 0.3em;
+}
+
+#ubication {
+    padding-bottom: 1em;
+}
+
+.information h3 {
+    color: var(--green);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.experience-details,
+.study-details {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 1em;
+    cursor: pointer; /* Añadir cursor de puntero */
+    border-bottom:  1px solid var(--sblack)
+}
+
+.experience-details .icon,
+.study-details .icon {
+    margin-right: 10px;
+    color: var(--green);
+}
+
+.experience-details span,
+.study-details span {
+    color: #868d96;
+}
+
+.experience-company, .study-type {
+    padding-bottom: 0.8em;
+    color: rgb(187, 178, 178);  
+    font-weight: bold;  
+}
+
+/* Estilos para habilidades como etiquetas */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 1em;
+}
+
+.skill-tag {
+    background-color: #6d6363;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    display: inline-block;
+}
+
