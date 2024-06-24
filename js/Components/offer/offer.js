@@ -1,6 +1,7 @@
 export const offer = (data) => { 
     const availabilityToTravel = data.result.availabilityToTravel ? 'sí' : 'no';
     const availabilityChangeOfResidence = data.result.availabilityChangeOfResidence ? 'sí' : 'no';
+    const skillsNames = data.result.skills.map(skill => skill.name).join(', ');
     return    `
             <link rel="stylesheet" href="/js/Components/offer/offer.css">   
             <div class="container_offer">
@@ -52,7 +53,7 @@ export const offer = (data) => {
                                         </div>
                                         <span>
                                             <span class="aplicant-info">
-                                                Aptitudes: TRAIDAS DEL BACKEND
+                                                Aptitudes: ${skillsNames}
                                             </span>
                                         </span>
                                     </li>

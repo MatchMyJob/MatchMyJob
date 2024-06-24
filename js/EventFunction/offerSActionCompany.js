@@ -1,37 +1,38 @@
 import { offerPreview } from "../Components/offerPreview/offerPreview.js";
 import { offer } from "../Components/offer/offer.js";
 import { getOfferByFilters, getOfferById } from "../../Service/offerQuery.js";
-import { offerClick } from "./clickAction.js";
 import { loaderOfferPreview } from "../Components/loaderOfferPreview/loaderOfferPreview.js";
 import { pagination } from "../Components/pagination/pagination.js";
 import { loaderOffer } from "../Components/loaderOffer/loaderOffer.js";
+import { offerClick } from "./clickAction.js";
 
 
 
-
-export async function offerSearchWithFiltersC() {
+export async function offerSearchWithFilters() {
     let buttons = document.querySelectorAll(".apply-button");
     let searchInput = document.querySelector('#searchOffer');
 
     buttons.forEach(button => {
         button.addEventListener('click', async () => {
-            await offerSearch(getCurrentPage(), 10); // Usar la página actual guardada
+            await offerSearchByCompany(getCurrentPage(), 10); // Usar la página actual guardada
         });
     });
 }
 
 
-export async function offerSearchC(pageNumber = 1, pageSize = 10) {
-    let companies = JSON.parse(localStorage.getItem("selectedCompanies")) || [];
-    let jobOfferMode = localStorage.getItem("selectedMode");
+export async function offerSearchByCompany(pageNumber = 1, pageSize = 10) {
+    let companyId = sessionStorage.getItem("CompanyId");
+    let title = null
+    let companies = [companyId];
+    let jobOfferMode = null;
     let jobOfferType = null;
-    let provinces = JSON.parse(localStorage.getItem("selectedProvinces")) || [];
+    let provinces = null;
     let studyType = null;
-    let categories = JSON.parse(localStorage.getItem("selectedCategories")) || [];
+    let categories = null;
     let skills = null;
     let availabilityToTravel = null;
     let availabilityChangeOfResidence = null;
-    let from = getDate();
+    let from = null;
     let to = null;
 
     let sidebar = document.getElementById("offer-previews");
@@ -40,7 +41,7 @@ export async function offerSearchC(pageNumber = 1, pageSize = 10) {
     sidebar.innerHTML = loaderOfferPreview();
 
     let offers = await getOfferByFilters(
-        null, 
+        title, 
         companies, 
         jobOfferMode, 
         jobOfferType, 
@@ -97,18 +98,19 @@ async function renderPaginationControls(currentPage, totalPages) {
             pageButton.classList.add('active');
         }
         pageButton.addEventListener('click', async () => {
-            await offerSearch(i, 10); // Cargar la página seleccionada
+            await offerSearchByCompany(i, 10); // Cargar la página seleccionada
         });
 
         paginationDiv.appendChild(pageButton);
     }
 }
 
-
-export const selectByOfferC = async () => {
+export const selectByCompanyOffer = async () => {
     let sidebar = document.getElementsByClassName("sidebar")[0];
     offerClick();
-
+    let button = document.getElementById("applyOffer");
+    button.textContent = "Ver Postulaciones";
+    
     sidebar.addEventListener("click", async (e) => {
         if (
             e.target.closest(".ember-view") ||  
@@ -122,42 +124,21 @@ export const selectByOfferC = async () => {
             let id = e.target.closest(".ember-view").id;
             let offerDescription = await getOfferById(id);
             offerInfo.innerHTML = offer(offerDescription);
+
+            let button = document.getElementById("applyOffer");
+            button.textContent = "Ver Postulaciones";
         }
     });
 }
 
-function getDate() {
-    let from = null;
-    let selectedDate = localStorage.getItem('selectedDate');
+export async function seeApplicationOffer() {
+    let offer = document.getElementById("main_section");
 
-    if (selectedDate === "1") {
-        // Para hoy
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0');
-        let mm = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
-        let yyyy = today.getFullYear();
-
-        from = `${yyyy}-${mm}-${dd}`;
-    } else if (selectedDate === "2") {
-        // Para la semana
-        let weekAgo = new Date();
-        weekAgo.setDate(weekAgo.getDate() - 7);
-
-        let dd = String(weekAgo.getDate()).padStart(2, '0');
-        let mm = String(weekAgo.getMonth() + 1).padStart(2, '0'); // Enero es 0!
-        let yyyy = weekAgo.getFullYear();
-
-        from = `${yyyy}-${mm}-${dd}`;
-    } else if (selectedDate === "3") {
-        // Para el mes
-        let monthAgo = new Date();
-        monthAgo.setDate(monthAgo.getDate() - 60);
-
-        let dd = String(monthAgo.getDate()).padStart(2, '0');
-        let mm = String(monthAgo.getMonth() + 1).padStart(2, '0'); // Enero es 0!
-        let yyyy = monthAgo.getFullYear();
-
-        from = `${yyyy}-${mm}-${dd}`;
-    }
-    return from;
+    offer.addEventListener('click', async e => {
+        if(e.target.matches("#applyOffer")){
+            let offerId = e.target.getAttribute("offerId");
+            sessionStorage.setItem("offerId", offerId);
+            window.location.href = './applicationCompany.html';
+        }
+    });
 }

@@ -60,7 +60,6 @@ nav .wrapper .left .input i {
 .wrapper a:hover {
     text-decoration: underline;
 }
-
 /* sidebar */
 
 .container {
@@ -69,7 +68,7 @@ nav .wrapper .left .input i {
     width: 90%;
     overflow-y: hidden;
     overflow-x:hidden;
-    margin-bottom: 15px;
+    padding: 15px;
 }
 
 aside,
@@ -200,9 +199,7 @@ main .box .btn:hover {
     margin-bottom: 5px;
     color: rgb(199, 196, 196)
 }
-#contenedorFiltros{
-    box-shadow: 0 7px 10px -5px var(--green);
-}
+
 .description ul li::before {
     content: "•";
     margin-right: 5px;
@@ -299,7 +296,9 @@ h1 {
     background: var(--sblack);
     outline: none;
 }
-
+#contenedorFiltros{
+    box-shadow: 0 7px 10px -5px var(--green);
+}
 .job-card:hover {
     background: var(--sblack);
 }
@@ -311,9 +310,13 @@ h1 {
 }
 
 .status span {
-    background-color: var(--sblack);
+    background-color: #6d6363;
     padding: 5px 10px;
     font-size: 0.9em;
+    color: white;
 }
 
 
+.btn {
+    display: none;
+}

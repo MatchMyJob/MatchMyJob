@@ -4,9 +4,9 @@ import { loaderOfferPreview } from "../Components/loaderOfferPreview/loaderOffer
 import { offer } from "../Components/offer/offer.js";
 import { pagination } from "../Components/pagination/pagination.js";
 import { userProfile } from "../Components/userProfile/userProfile.js";
-import { getCompanyApplicationByFilters } from "../Service/applicationQuery.js";
-import { getOfferById } from "../Service/offerQuery.js";
-import { getResumeById } from "../Service/resumeQuery.js";
+import { getCompanyApplicationByFilters } from "../../Service/applicationQuery.js";
+import { getOfferById } from "../../Service/offerQuery.js";
+import { getResumeById } from "../../Service/resumeQuery.js";
 import { applicationClick } from "./clickAction.js";
 
 export async function applicationSearchByFilters() {
@@ -24,10 +24,11 @@ export async function applicationSearch(statusType, pageNumber = 1, pageSize = 1
     let sidebar = document.getElementById("offer-previews");
     const offerInfo = document.getElementById('main_section'); 
     offerInfo.innerHTML = loaderOffer();
+    const offertid = sessionStorage.getItem("offerId");
     sidebar.innerHTML = loaderOfferPreview();
 
     let applications = await getCompanyApplicationByFilters(
-        "fe4370bc-c706-4b09-9448-01bc6ff9b01f",
+        offertid,
         statusType,
         pageNumber,
         pageSize
@@ -104,6 +105,7 @@ export const selectOfferByApplication = async () => {
             console.log(id)
             let resumeDescription = await getResumeById(id);
             offerInfo.innerHTML = await userProfile(resumeDescription);
+            
         }
     });
 };

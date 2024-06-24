@@ -11,7 +11,11 @@ main .box .content p {
     font-family: 'Roboto', sans-serif;
     color: #ebe1e1;
 }
-
+#image-postulaciones{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
 main .box .content p a {
     text-decoration: none;
     color: #868d96;

@@ -6,11 +6,19 @@ async function renderCompany() {
     const response = await CompanyApi.GetMeCompany();
     const authToken = sessionStorage.getItem("authToken");
     const company = response.result;
-    if (company.frontPage) {
+    const companyId = sessionStorage.setItem("CompanyId", company.companyId);
+    const defaultImage = 'https://media.istockphoto.com/id/1333528095/es/foto/fondo-de-textura-de-papel-negro-desgastado.jpg?s=1024x1024&w=is&k=20&c=ke8RsLCXe0rC4_Ii5y3AqBgz_onY3Kn67JOZ6LhMuYA=';
+
+    if (company && company.frontPage) {
         document.body.style.backgroundImage = `url(${company.frontPage})`;
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center';
-    }
+    } else {
+        document.body.style.backgroundImage = `url(${defaultImage})`;
+    }    
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
     const offers = await getOfferByFilters(null, [company.companyId], null, null, null, null, null, null, null, null, null, null, null, 3);
     const offerts = offers.result.data;
     console.log(offerts);

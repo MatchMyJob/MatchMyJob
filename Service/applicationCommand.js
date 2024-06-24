@@ -5,7 +5,6 @@ const urlBase = "https://localhost:7291/api/Application";
 export const registerApplication = async (offerId) => {
     const url = `${urlBase}`;
     const authToken = sessionStorage.getItem("authToken");
-
     // Datos para enviar en el cuerpo de la solicitud POST
     const requestBody = {
         offerId: offerId
@@ -55,7 +54,7 @@ export const registerApplication = async (offerId) => {
 export const updateApplication = async (applicationId, statusTypeId) => {
     const url = `${urlBase}/${applicationId}`;
     const authToken = sessionStorage.getItem("authToken");
-
+    console.log(url)
     // Datos para enviar en el cuerpo de la solicitud POST
     const requestBody = {
         applicationStatusTypeId: statusTypeId

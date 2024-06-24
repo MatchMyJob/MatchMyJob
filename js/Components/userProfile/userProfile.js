@@ -5,7 +5,7 @@ export async function userProfile(data) {
 
     let response = await getApplicantById(userId);
     const { name, surname, phone, linkedin, minimalDescription, email, ubication } = response.result;
-
+    const userImage = image ? image : '../../../Images/fotoPerfilNotFound.png';
     return `
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="/js/Components/userProfile/userProfile.css">   
@@ -15,7 +15,7 @@ export async function userProfile(data) {
                     <div class="content">
                         <div class="user-det">
                             <div class="user-img">
-                                <--<img src="../../../Images/fotoPerfilNotFound.png" alt="User Image">
+                                <img src="${userImage}" alt="User Image" id="image-postulaciones">
                                 <div class="contact-info">
                                     ${name ? `<p id="nameSurname">${name} ${surname}</p>` : ''}
                                     ${minimalDescription ? `<p id="minimalDescription">${minimalDescription}</p>` : ''}
@@ -25,48 +25,45 @@ export async function userProfile(data) {
                                     ${email ? `<p><i class="fas fa-envelope"></i> ${email}</p>` : ''}
                                 </div>
                             </div>
-                            <div class="user-description">
-                                <h3>About</h3>
-                                <p id="about-description">${description}</p>
-                            </div>
-                        </div>
-                        <div class="information">
-                            <h3>Habilidades</h3>
-                            <div class="skills-container">
-                                ${skills.map(skill => `
-                                    <span class="skill-tag">${skill.name}</span>
-                                `).join('')}
-                            </div>
-                            <h3>Experiencias</h3>
-                            <ul>
-                                ${experiences.map(exp => `
-                                    <li class="experience-details">
-                                        <span>
-                                            <div class="experience-company"> 
-                                                ${exp.companyName} - ${exp.jobTitle} ${new Date(exp.startDate).toLocaleDateString()} - ${new Date(exp.endDate).toLocaleDateString()}
-                                            </div>
-                                            <span class="experience-title">
-                                                ${exp.jobDescription}
-                                            </span>
+                    ${skills.length > 0 ? `
+                        <h3>Habilidades</h3>
+                        <div class="skills-container">
+                            ${skills.map(skill => `
+                                <span class="skill-tag">${skill.name}</span>
+                            `).join('')}
+                        </div>` : ''}
+                        ${experiences.length > 0 ? `
+                        <h3>Experiencias</h3>
+                        <ul>
+                            ${experiences.map(exp => `
+                                <li class="experience-details">
+                                    <span>
+                                        <div class="experience-company"> 
+                                            ${exp.companyName} - ${exp.jobTitle} ${new Date(exp.startDate).toLocaleDateString()} - ${new Date(exp.endDate).toLocaleDateString()}
+                                        </div>
+                                        <span class="experience-title">
+                                            ${exp.jobDescription}
                                         </span>
-                                    </li>
-                                `).join('')}
-                            </ul>
-                            <h3>Estudios</h3>
-                            <ul>
-                                ${studys.map(study => `
-                                    <li class="study-details">
-                                        <span>
-                                            <div class="study-type">
-                                                ${study.studyType.name} - ${new Date(study.startDate).toLocaleDateString()} - ${new Date(study.endDate).toLocaleDateString()}
-                                            </div>
-                                            <span class="study-description">
-                                                ${interpretarTexto(study.description)}
-                                            </span>
+                                    </span>
+                                </li>
+                            `).join('')}
+                        </ul>` : ''}
+                        ${studys.length > 0 ? `
+                        <h3>Estudios</h3>
+                        <ul>
+                            ${studys.map(study => `
+                                <li class="study-details">
+                                    <span>
+                                        <div class="study-type">
+                                            ${study.studyType.name} - ${new Date(study.startDate).toLocaleDateString()} - ${new Date(study.endDate).toLocaleDateString()}
+                                        </div>
+                                        <span class="study-description">
+                                            ${interpretarTexto(study.description)}
                                         </span>
-                                    </li>
-                                `).join('')}
-                            </ul>
+                                    </span>
+                                </li>
+                            `).join('')}
+                        </ul>` : ''}
                         </div>
                     </div>
                 </div>

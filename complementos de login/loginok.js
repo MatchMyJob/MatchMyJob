@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         const loginResponse = await ApiLogin.Post(email, password);
                         if (loginResponse && loginResponse.status === 'OK' && loginResponse.result && loginResponse.result.token) {
                             sessionStorage.setItem("authToken", loginResponse.result.token);
-                            if (rol === '05cd6e7f-9fdc-44a4-9fdc-60317f1872d9') { // Role de la compañía
+                            if (rol === '05cd6e7f-9fdc-44a4-9fdc-60317f1872d9') { 
                                 window.location.href = './completarregistrocompany.html'; 
-                            } else if (rol === '2abce592-b6aa-42c0-b20a-b0f97ce9e2eb') { // Role del usuario
+                            } else if (rol === '2abce592-b6aa-42c0-b20a-b0f97ce9e2eb') {
                                 window.location.href = './completeregister.html';
                             } else {
                                 throw new Error('Rol desconocido.');
@@ -73,10 +73,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log('Respuesta de inicio de sesión:', loginResponse);
                         if (loginResponse && loginResponse.status === 'OK' && loginResponse.result && loginResponse.result.token) {
                             sessionStorage.setItem("authToken", loginResponse.result.token);
-                            const userRole = loginResponse.result.role; // El rol del usuario devuelto en la respuesta
-                            if (userRole === 'company') { // Role de la compañía
+                            const userRole = loginResponse.result.role; 
+                            if (userRole === 'company') { 
                                 window.location.href = './company.html';
-                            } else if (userRole === 'jobuser') { // Role del usuario
+                            } else if (userRole === 'jobuser') { 
                                 window.location.href = './index.html';
                             } else {
                                 throw new Error('Rol desconocido.');
