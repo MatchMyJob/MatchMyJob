@@ -2,9 +2,12 @@ import ResumeApi from "../Service/ResumeApi.js";
 document.addEventListener('DOMContentLoaded', async() => {
     const skillModal = document.getElementById('skillModal');
     const addSkillBtn = document.getElementById('addSkillBtn');
-    const closeBtn = skillModal.querySelector('.close');
+    const closeBtn = skillModal.querySelector('.close');    
     const cancelBtn = skillModal.querySelector('.cancel-btn');
     skillModal.style.display = 'none';
+    const reloadPage = () => {
+        location.reload();
+    };
     if (addSkillBtn) {
         addSkillBtn.onclick = function() {
             skillModal.style.display = 'block';
@@ -32,6 +35,7 @@ document.addEventListener('DOMContentLoaded', async() => {
         const selectedSkillId = document.getElementById('skillList').value;
         ResumeApi.PostSkill(selectedSkillId);
         skillModal.style.display = 'none';
+        reloadPage();
     }
 })
 async function fetchSkills() {

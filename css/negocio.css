@@ -9,9 +9,14 @@
     padding: 0;
 }
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
     background-color: #000;
 }
-.container {
+.container-neg {
+    flex: 1;
     background-color: var(--sblack);
     padding: 20px;
     box-shadow: 0 0 10px var(--green);

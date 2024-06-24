@@ -8,15 +8,15 @@ function renderFooter() {
             <h3>General</h3><br>
             <ul>
                 <li><a href="#">Acerca de</a><br></li>
-                <li><a href="#">Empleos</a><br></li>
+                <li><a href="offert.html">Empleos</a><br></li>
                 <li><a href="#">Preguntas frecuentes</a><br></li>
             </ul>
         </div>
         <div class="fbox">
             <h3>Navegar por MatchMyJob</h3><br>
             <ul>
-                <li><a href="#">Cuenta</a><br></li>
-                <li><a href="#">Servicios</a><br></li>
+                <li><a href="resume.html">Cuenta</a><br></li>
+                <li><a href="offert.html">Servicios</a><br></li>
                 <li><a href="#">Inicio</a><br></li>
             </ul>
         </div>

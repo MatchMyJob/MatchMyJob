@@ -15,7 +15,38 @@ body{
     background: #000;
 }
 /* sidebar */
+nav .wrapper .left {
+    padding-left: 1rem;
+    display: flex;
+    gap: 15rem;
+}
 
+nav .wrapper .left .input {
+    background: var(--sblack);
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.2rem;
+}
+
+nav .wrapper .left .input input[type='search'] {
+    width: 30rem;
+    border: none;
+    background: transparent;
+}
+
+nav .wrapper .left .input input[type='search']::placeholder {
+    font-size: 1rem;
+    color: rgb(199, 196, 196);
+    font-weight: 100;
+}
+
+nav .wrapper .left .input i {
+    font-size: 1rem;
+    color: rgb(199, 196, 196);
+}
 .container{
     display: grid;
     grid-template-columns: 20% 52% 28%;
@@ -370,6 +401,7 @@ aside .sidebar .profile{
     color: #fff;
 }
 
+
 .sidebar .profile a:hover{
     text-decoration: underline;
 }
@@ -454,7 +486,6 @@ hr#profile{
     color: #fff;
     cursor: pointer;
 }
-
 
 aside .recent_jobs{
     background: var(--semiblack);

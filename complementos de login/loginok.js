@@ -58,7 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         const loginResponse = await ApiLogin.Post(email, password);
                         if (loginResponse && loginResponse.status === 'OK' && loginResponse.result && loginResponse.result.token) {
                             sessionStorage.setItem("authToken", loginResponse.result.token);
-                            window.location.href = './completeregister.html'; 
+                            if (rol === '05cd6e7f-9fdc-44a4-9fdc-60317f1872d9') {
+                                window.location.href = './completarregistrocompany.html'; 
+                            } else if (rol === '2abce592-b6aa-42c0-b20a-b0f97ce9e2eb') {
+                                window.location.href = './completeregister.html';
+                            } else {
+                                throw new Error('Rol desconocido.');
+                            }
                         } else {
                             throw new Error('Error en el inicio de sesión después del registro.');
                         }

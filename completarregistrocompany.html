@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/complementos de login/stylenav.css">
+    <link rel="stylesheet" href="/Footer/stylefooter.css">
+    <link rel="stylesheet" href="/completerregister.css">
+    <title>Register</title>
+</head>
+<body>
+    <nav class="navbar"></nav>
+    <div class="container-form">
+        <h1>Termine de completar su registro</h1>
+        <form id="completeFormC">
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="cityId">Ciudad</label>
+                    <select id="citySelectc" name="citySelect">
+                        <option value="">Selecciona una ciudad</option>
+                        <option value="60218">Chascomús</option>
+                        <option value="60274">Florencio Varela</option>
+                        <option value="60028">Almirante Brown</option>
+                        <option value="60091">Berazategui</option>z
+                        <option value="22007">Comuna 1</option>
+                        <option value="22014">Comuna 2</option>
+                        <option value="140742">Villa Carlos Paz</option>
+                        <option value="140861">Río Cuarto</option>
+                    </select>
+                    <span id="cityIdError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="cuit">cuit</label>
+                    <input type="text" id="cuit" placeholder="cuit">
+                    <span id="cuitError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="phonec">Telefono</label>
+                    <input type="text" id="phonec" placeholder="54-1141462757">
+                    <span id="phoneError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="businessName">Nombre de la compañia</label>
+                    <input type="text" id="businessName" placeholder="Nombre de la compañia">
+                    <span id="businessNameError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="address">Dirección</label>
+                    <input type="text" id="address" placeholder="Dirección">
+                    <span id="addressError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="businessSector">Sector Empresarial</label>
+                    <input type="text" id="businessSector" placeholder="Sector Empresarial">
+                    <span id="businessSectorError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="website">Sitio Web</label>
+                    <input type="text" id="website" placeholder="Sitio Web">
+                    <span id="websiteError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="minimalDescriptionc">Breve Descripcion</label>
+                    <input type="text" id="minimalDescriptionc" placeholder="Breve Descripcion">
+                    <span id="minimalDescriptionError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="descriptionc">Descripcion</label>
+                    <input type="text" id="descriptionc" placeholder="Descripcion">
+                    <span id="descriptionError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="workerQuantity">Cantidad de empleados</label>
+                    <input type="number" id="workerQuantity" placeholder="Cantidad de empleados">
+                    <span id="workerQuantityError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="imageFileInputL">Seleccione su logo:</label>
+                    <input type="file" id="imageFileInputL" accept="image/*">
+                    <br>
+                    <label for="imageL">URL Logo</label>
+                    <input type="text" id="imageL" name="imageL" placeholder="URL Logo">
+                    <span id="imageError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="imageFileInputB">Seleccione su Banner:</label>
+                    <input type="file" id="imageFileInputB" accept="image/*">
+                    <br>
+                    <label for="Banner">URL Banner</label>
+                    <input type="text" id="Banner" name="Banner" placeholder="URL Banner">
+                    <span id="BannerError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="founded">Fundado</label>
+                    <input type="number" id="founded" placeholder="Fundado">
+                    <span id="foundedError" class="error"></span>
+                </div>
+                <div class="btn-field">
+                    <button id="completeRegistration" type="submit">Completar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <section class="footer"></section>
+    <script type="module" src="./js/EventFunction/clickImageCompanyLogo.js"></script>
+    <script type="module" src="./js/EventFunction/clickImageCompanyBanner.js"></script>
+    <script type="module" src="./complementos de login/navrenderlogin.js"></script>
+    <script type="module" src="/complementos de login/registercompany.js"></script>
+    <script type="module" src="./Footer/footer.js" ></script>    
+</body>
+</html>

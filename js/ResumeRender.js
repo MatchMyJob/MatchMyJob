@@ -1,5 +1,6 @@
 import ResumeApi from "../Service/ResumeApi.js";
 import ApplicantApi from "../Service/ApplicantApi.js";
+import {getApplicationByFilters } from "../Service/applicationQuery.js"
 import { fetchSkills } from "../js/addskill.js"
 async function renderResume() {
     const article = document.createElement('article');
@@ -7,6 +8,9 @@ async function renderResume() {
     const applicante = response.result;
     const responsecv = await ResumeApi.GetResume();
     const resume = responsecv;
+    const applicationsResponse = await getApplicationByFilters(null, null, 5);
+    const applications = applicationsResponse.result.data;
+
     let Experiences = [];
     let Skills = [];
     let Studys = [];
@@ -37,13 +41,23 @@ async function renderResume() {
             endDate: formatDate(study.endDate)
         });
     });
+    const applicationsList = applications.map(application => `
+        <li>
+            <div class="postulaciones">
+                <p class="fs20-">${application.offerTitle}</p>
+                <span class="post-estado">${application.applicationStatusType}</span>
+            </div>
+        </li>
+    `).join('')
+    ;
+        
     article.className = 'formulario_cv'
     article.innerHTML = `
             <div class="main-content">
                 <div class="boxx">
                     <div class="form_fields form_header">
                         <div class="photo_user">
-                            <img src="/Images/dp.jpg" alt="${applicante.name}" class="user-photo"/>
+                            <img src="${resume.image}" alt="${applicante.name}" class="user-photo"/>
                         </div>
                         <div class="info_user">
                             <div class="user-info">
@@ -54,7 +68,6 @@ async function renderResume() {
                                 <li class="cols">
                                     <span class="user-mail-icon"><i class="fa-regular fa-envelope"></i><span
                                             class="user-mail"> ${applicante.email} </span></span>
-
                                 </li>
                                 <li class="cols">
                                     <span class="user-phone-icon"><i class="fa-solid fa-phone"></i><span
@@ -69,7 +82,7 @@ async function renderResume() {
                             <!--<a class="lapiz-icon"><i class="fa-solid fa-pencil"></i></a>-->
                         </div>
                         <p>${resume.description}</p>
-                        
+                        <br>
                         <div class="lamparita-icon"><i class="fa-regular fa-lightbulb"></i>
                             Una descripción bien detallada y extensa de tu perfil profesional te ayudará a destacar
                             entre otros
@@ -83,10 +96,10 @@ async function renderResume() {
                             <li>
                                 <div class="w100 dFlex">
                                     <div class="info">
-                                        <p class="fc80">${experience.companyName}</p>
-                                        <p><span>${experience.jobTitle}</span></p>
-                                        <p><span>${experience.jobDescription}</span></p>
-                                        <p class="fc80 mt5">${experience.startDate} - ${experience.endDate}</p>
+                                        <p class="fc80">Nombre de la Empresa: ${experience.companyName}</p>
+                                        <p><span>Puesto: ${experience.jobTitle}</span></p>
+                                        <p><span>Descripcion: ${experience.jobDescription}</span></p>
+                                        <p class="fc80 mt5">Inicio:${experience.startDate} - Fin: ${experience.endDate}</p>
                                     </div>
                                     <div class="actions">
                                         <a class="exp-edit" data-experience-id="${experience.experienceId}">
@@ -114,9 +127,9 @@ async function renderResume() {
                             <li>
                                 <div class="w100 dFlex">
                                     <div class="info">
-                                        <p class="fs15">${study.studyTypeName}</p>
-                                        <p class="fc80">${study.description}</p>
-                                        <p class="fc80 mt5">${study.startDate} - ${study.endDate}</p>
+                                        <p class="fs15">Tipo de estudio: ${study.studyTypeName}</p>
+                                        <p class="fc80">Donde: ${study.description}</p>
+                                        <p class="fc80 mt5">Inicio: ${study.startDate} - Fin: ${study.endDate}</p>
                                     </div>
                                     <div class="actions">
                                         <a class="study-edit" data-study-id="${study.studyId}">
@@ -156,13 +169,9 @@ async function renderResume() {
         </div>
             <aside class="sidebar">
                 <section class="formulario_lateral">
-                    <h3 class="fs20 mb0">MIS POSTULACIONES</h3>
+                    <h3 class="fs20 mb0"><a id="postu-ref" href="/applicationUser.html">MIS POSTULACIONES</a></h3>
                     <ul class="list_timeline">
-                        <li>
-                            <div class="postulaciones">
-                                <p class="fs20-">POSTULACION 1 DESDE EL BACK</p><span class="post-estado">ESTADO</span>
-                            </div>
-                        </li>
+                    ${applicationsList}                        
                     </ul>
                 </section>
             </aside>
@@ -181,6 +190,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const contenedor = document.querySelector('.container');
     const resume = await renderResume();
     contenedor.appendChild(resume);
+    const reloadPage = () => {
+        location.reload();
+    };
     const addSkillBtn = document.getElementById('addSkillBtn');
     if (addSkillBtn) {
         addSkillBtn.addEventListener('click', function () {
@@ -241,7 +253,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                     }
                     else {
-                        alert("Se elimino correctamente");
+                        reloadPage();
                     }
                 } catch (error) {
                     console.error('Error en la solicitud DELETE:', error);
@@ -274,7 +286,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                     }
                     else {
-                        alert("Se elimino correctamente");
+                        reloadPage();
                     }
                 } catch (error) {
                     console.error('Error en la solicitud DELETE:', error);
@@ -307,7 +319,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         }
                     }
                     else {
-                        alert("Se elimino correctamente");
+                        reloadPage();
                     }
                 } catch (error) {
                     console.error('Error en la solicitud DELETE:', error);

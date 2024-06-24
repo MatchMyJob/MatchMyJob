@@ -80,8 +80,11 @@
                     <span id="minimumSalaryError" class="error"></span>
                 </div>
                 <div class="input-field">
+                    <label for="imageFileInput">Select an image:</label>
+                    <input type="file" id="imageFileInput" accept="image/*">
+                    <br>
                     <label for="image">Image URL</label>
-                    <input type="text" id="image" placeholder="Image URL">
+                    <input type="text" id="image" name="image" placeholder="Image URL">
                     <span id="imageError" class="error"></span>
                 </div>
                 <div class="btn-field">
@@ -91,6 +94,7 @@
         </form>
     </div>
     <section class="footer"></section>
+    <script type="module" src="./js/EventFunction/clickImage.Js"></script>
     <script type="module" src="./complementos de login/navrenderlogin.js"></script>
     <script type="module" src="/complementos de login/registerapplicant.js"></script>
     <script type="module" src="./Footer/footer.js" ></script>    

@@ -16,12 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const name = document.getElementById('name').value;
         const surname = document.getElementById('surname').value;
         const minimalDescription = document.getElementById('minimalDescription').value;
-        const birthDate = document.getElementById('birthDate').value; // Formato YYYY-MM-DD
+        const birthDate = document.getElementById('birthDate').value; 
         const description = document.getElementById('description').value;
         const minimumSalary = document.getElementById('minimumSalary').value;
         const image = document.getElementById('image').value;
-
-        // Verificar valores
         console.log('City ID:', cityId);
         console.log('Minimal Description:', minimalDescription);
 

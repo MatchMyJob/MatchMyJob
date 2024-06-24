@@ -12,10 +12,13 @@ document.addEventListener('DOMContentLoaded', async() => {
     var educationCurrentCheckbox = document.getElementById("educationCurrent");
     let currentEndDate = "";
     educationModal.style.display = "none";
-
+    const reloadPage = () => {
+        location.reload();
+    };
     if (addEducationBtn) {
         addEducationBtn.addEventListener('click', function() {
             educationModal.style.display = "block";
+
         });
     }
 
@@ -56,7 +59,9 @@ document.addEventListener('DOMContentLoaded', async() => {
             var educationEndDate = educationCurrentCheckbox.checked ? "Actualmente" : educationEndDateInput.value;
             ResumeApi.PostStudy(educationType,educationDescription,educationStartDate,educationEndDate);
             educationModal.style.display = "none";
+            reloadPage();
             clearEducationForm();
+            
         });
     }
 

@@ -4,10 +4,12 @@ import ResumeApi from "../Service/ResumeApi.js";
 async function GenerarAsideInicial(applicante, Studys) {
     const asidecontainer = document.createElement('div');
     asidecontainer.className = 'aside-div-container';
+    const responsecv = await ResumeApi.GetResume();
+    const resume = responsecv;
     const newaside = document.createElement('div');
     newaside.className = 'sidebar';
     newaside.innerHTML = `
-        <img src="./Images/dp.jpg" alt="" />
+        <img src="${resume.image}" alt="" />
   
         <div class="profile">
             <a href="./resume.html">${applicante.name} ${applicante.surname}</a>
@@ -31,9 +33,9 @@ async function GenerarAsideInicial(applicante, Studys) {
             `).join('')}
             <hr id="view">
         </div>
-        <div class="items">
+        <div class="items">        
             <i class="fa-solid fa-bookmark"></i>
-            <h6>Mis cosas</h6>
+            <a href="resume.html" style="text-decoration: none; color: white;"><h6>MI CV</h6></a>
         </div>`;
     asidecontainer.appendChild(newaside);
 

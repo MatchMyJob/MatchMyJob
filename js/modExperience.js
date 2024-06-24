@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     let expid = sessionStorage.getItem('selectExp');
     let currentEndDate = "";
     modal.style.display = "none";
-    
+    const reloadPage = () => {
+        location.reload();
+    };
     if (btn) {
         btn.onclick = function() {
             modal.style.display = "block";
@@ -43,12 +45,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         ResumeApi.PutExperience(expid,companyName, jobTitle, jobDescription, startDate, endDate)
             .then(response => { 
-                alert("modificacion exitosa?");
                 modal.style.display = "none";
+                reloadPage();
                 clearFormFields(); 
             })
             .catch(error => {
-                alert("Error no se pudo cargar la experiencia:", error);
+                alert("Error no se pudo modificar la experiencia:", error);
             });
     });
 

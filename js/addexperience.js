@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', async() => {
     var endDateInput = document.getElementById("endDate");
     let currentEndDate = "";
     modal.style.display = "none";
+    const reloadPage = () => {
+        location.reload();
+    };
     if (btn) {
         btn.onclick = function() {
             modal.style.display = "block";
@@ -41,9 +44,9 @@ document.addEventListener('DOMContentLoaded', async() => {
         var endDate = currentlyWorkingCheckbox.checked ? "Actualmente" : document.getElementById("endDate").value;
         
         ResumeApi.PostExperience(companyName, jobTitle, jobDescription, startDate, endDate)
-            .then(response => {                
-                alert("Carga exitosa");
+            .then(response => {
                 modal.style.display = "none";
+                reloadPage();
                 clearFormFields(); 
             })
             .catch(error => {

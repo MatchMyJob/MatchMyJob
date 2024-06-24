@@ -1,0 +1,161 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.3rem 1rem;
+    background: var(--semiblack);
+}
+
+.wrapper .left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 3rem; 
+}
+
+.wrapper .right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.right .jobs,
+.right .home,
+.right .me,
+.right .work,
+.right .logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.right i {
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+.right a,
+.right button {
+    text-decoration: none!important; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.right a:hover,
+.right button:hover {
+    text-decoration: none; 
+    color: #bcc3cc;
+}
+
+.right .down i {
+    font-size: 12px;
+    margin: 0;
+    margin-left: -5px;
+}
+
+.right h6 {
+    font-size: 1rem;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.wrapper .left .input {
+    background: var(--sblack);
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.2rem;
+}
+
+.wrapper .left .input input[type='search'] {
+    width: 30rem;
+    border: none;
+    background: transparent;
+}
+
+.wrapper .left .input input[type='search']::placeholder {
+    font-size: 1rem;
+    color: rgb(199, 196, 196);
+    font-weight: 100;
+}
+
+.wrapper .left .input i {
+    font-size: 1rem;
+    color: rgb(199, 196, 196);
+}
+
+.wrapper .right .home,
+.wrapper .right .jobs:hover,
+.wrapper .right .me .down:hover,
+.wrapper .right .work .down:hover
+{
+    color: #868d96;
+}
+
+.wrapper .right .jobs,
+.wrapper .right .work,
+.wrapper .right .logout {
+    color: #868d96;
+}
+#logoutButton:hover{
+    color: red;
+}
+
+.wrapper .right .me .down,
+.wrapper .right .work .down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #868d96;
+}
+
+.wrapper .right .me i:first-child {
+    background: #868d96;
+    color: #000;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper a {
+    text-decoration: none;
+    font-size: 0.7rem;
+    width: 7rem;
+    text-align: center;
+    cursor: pointer;
+    color: #bcc3cc;
+}
+
+.wrapper a:hover {
+    text-decoration: underline;
+}
+
+nav section .filter .search-filter {
+    margin-top: -10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.3rem 0.5rem;
+    background: var(--semiblack);
+    box-shadow: 0 0.4rem var(--green);
+}

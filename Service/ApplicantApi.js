@@ -43,9 +43,20 @@ const GetApplicantMe = async () => {
       const responseData = await response.json();
     return responseData;
 }
+const GetApplicantes = async () => {
+    const GetUrl = `https://localhost:7292/api/Applicant?pagedSize=8`;
+    const response = await fetch(GetUrl, {
+        method: 'GET',
+        headers: {
+        }
+      });
+      const responseData = await response.json();
+    return responseData;
+}
 const ApplicantApi = {
     Register: RegisterApplicant,
-    Getme: GetApplicantMe
+    Getme: GetApplicantMe,
+    GetApplicantes: GetApplicantes
 };
 
 export default ApplicantApi;

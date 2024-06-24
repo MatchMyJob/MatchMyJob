@@ -30,7 +30,7 @@ async function GenerarMain() {
             const offerContainer = document.createElement('div');
             offerContainer.className = 'box';
             offerContainer.innerHTML = `
-                <div class="content fbox-container">
+                <div class="content fbox-container" data-offer-id="${offer.offerId}">
                     <img src="${offer.company.logo}" alt="${offer.company.businessName} logo" class="company-logo">
                     <div class="text-content">
                         <h2><a href="">${offer.title}</a></h2>
@@ -38,9 +38,13 @@ async function GenerarMain() {
                         <p>${shortDescription}</p>
                     </div>
                 </div>
-                <button class="btn">Learn more</button>
+                <button class="btn"  data-offer-id="${offer.offerId}">Learn more</button>
             `;
             MainContainer.appendChild(offerContainer);
+            const learnMoreButton = offerContainer.querySelector('.btn');
+            learnMoreButton.addEventListener('click', () => {
+                navigateToOfferPage(offer.offerId);
+            });
         });
 
         return MainContainer;
@@ -57,3 +61,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         contenedor.appendChild(main);
     }
 });
+function navigateToOfferPage() {
+    window.location.href = `/offert.html`;
+}

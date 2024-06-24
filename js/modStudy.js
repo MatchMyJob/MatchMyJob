@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     var educationCurrentCheckbox = document.getElementById("educationCurrentm");
     let currentEndDate = "";
     let studyid = sessionStorage.getItem('studyid');
+    const reloadPage = () => {
+        location.reload();
+    };
     educationModal.style.display = "none";
 
     if (addEducationBtns.length > 0) {
@@ -61,6 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             ResumeApi.PutStudy(studyid, educationType, educationDescription, educationStartDate, educationEndDate);
             educationModal.style.display = "none";
             clearEducationForm();
+            reloadPage();
         });
     }
 
