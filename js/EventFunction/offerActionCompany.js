@@ -5,11 +5,10 @@ import { offerClick } from "./clickAction.js";
 import { loaderOfferPreview } from "../Components/loaderOfferPreview/loaderOfferPreview.js";
 import { pagination } from "../Components/pagination/pagination.js";
 import { loaderOffer } from "../Components/loaderOffer/loaderOffer.js";
-import { registerApplication } from "../../Service/applicationCommand.js";
 
 
 
-export async function offerSearchWithFilters() {
+export async function offerSearchWithFiltersC() {
     let buttons = document.querySelectorAll(".apply-button");
     let searchInput = document.querySelector('#searchOffer');
 
@@ -18,19 +17,10 @@ export async function offerSearchWithFilters() {
             await offerSearch(getCurrentPage(), 10); // Usar la página actual guardada
         });
     });
-
-    // Añadir evento de escucha para la tecla Enter en el campo de búsqueda
-    searchInput.addEventListener('keypress', async (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Evitar la acción por defecto del Enter
-            await offerSearch(1, 10); // Buscar desde la primera página
-        }
-    });
 }
 
 
-export async function offerSearch(pageNumber = 1, pageSize = 10) {
-    let title = document.querySelector('#searchOffer').value;
+export async function offerSearchC(pageNumber = 1, pageSize = 10) {
     let companies = JSON.parse(localStorage.getItem("selectedCompanies")) || [];
     let jobOfferMode = localStorage.getItem("selectedMode");
     let jobOfferType = null;
@@ -49,7 +39,7 @@ export async function offerSearch(pageNumber = 1, pageSize = 10) {
     sidebar.innerHTML = loaderOfferPreview();
 
     let offers = await getOfferByFilters(
-        title, 
+        null, 
         companies, 
         jobOfferMode, 
         jobOfferType, 
@@ -114,7 +104,7 @@ async function renderPaginationControls(currentPage, totalPages) {
 }
 
 
-export const selectByOffer = async () => {
+export const selectByOfferC = async () => {
     let sidebar = document.getElementsByClassName("sidebar")[0];
     offerClick();
 
@@ -134,21 +124,6 @@ export const selectByOffer = async () => {
         }
     });
 }
-
-
-
-export async function applyToOffer() {
-    let offer = document.getElementById("main_section");
-
-    offer.addEventListener('click', async e => {
-        if(e.target.matches("#applyOffer")){
-            let offerId = e.target.getAttribute("offerId");
-            await registerApplication(offerId);
-        }
-    });
-}
-
-
 
 function getDate() {
     let from = null;

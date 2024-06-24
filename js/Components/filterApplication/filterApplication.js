@@ -6,8 +6,8 @@ function filterApplication() {
             <div id="applicationFilters" class="filters">
                     <button class="filter-button" value="">Todas tus postulaciones</button>
                     <button class="filter-button" value="1">Postulado</button>
-                    <button class="filter-button" value="2">CV Visto</button>
-                    <button class="filter-button" value="3">En proceso</button>
+                    <button class="filter-button" value="2">En proceso</button>
+                    <button class="filter-button" value="3">Finalista</button>
                     <button class="filter-button" value="4">Proceso finalizado</button>
             </div>
         `

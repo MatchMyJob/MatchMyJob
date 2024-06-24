@@ -6,6 +6,7 @@ async function GenerarAsideInicial(applicante, Studys) {
     asidecontainer.className = 'aside-div-container';
     const responsecv = await ResumeApi.GetResume();
     const resume = responsecv;
+    console.log(resume);
     const newaside = document.createElement('div');
     newaside.className = 'sidebar';
     newaside.innerHTML = `

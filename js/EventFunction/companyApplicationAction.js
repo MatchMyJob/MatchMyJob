@@ -1,10 +1,12 @@
+import { companyApplication } from "../Components/companyApplication/companyApplication.js";
 import { loaderOffer } from "../Components/loaderOffer/loaderOffer.js";
 import { loaderOfferPreview } from "../Components/loaderOfferPreview/loaderOfferPreview.js";
 import { offer } from "../Components/offer/offer.js";
 import { pagination } from "../Components/pagination/pagination.js";
-import { userApplication } from "../Components/userApplication/userApplication.js";
-import { getApplicationByFilters } from "../../Service/applicationQuery.js";
-import { getOfferById } from "../../Service/offerQuery.js";
+import { userProfile } from "../Components/userProfile/userProfile.js";
+import { getCompanyApplicationByFilters } from "../Service/applicationQuery.js";
+import { getOfferById } from "../Service/offerQuery.js";
+import { getResumeById } from "../Service/resumeQuery.js";
 import { applicationClick } from "./clickAction.js";
 
 export async function applicationSearchByFilters() {
@@ -24,7 +26,8 @@ export async function applicationSearch(statusType, pageNumber = 1, pageSize = 1
     offerInfo.innerHTML = loaderOffer();
     sidebar.innerHTML = loaderOfferPreview();
 
-    let applications = await getApplicationByFilters(
+    let applications = await getCompanyApplicationByFilters(
+        "fe4370bc-c706-4b09-9448-01bc6ff9b01f",
         statusType,
         pageNumber,
         pageSize
@@ -32,7 +35,7 @@ export async function applicationSearch(statusType, pageNumber = 1, pageSize = 1
 
     sidebar.innerHTML = "";
     applications.result.data.forEach((application) => {
-        sidebar.innerHTML += userApplication(application);
+        sidebar.innerHTML += companyApplication(application);
     });
 
     sidebar.innerHTML += pagination();
@@ -45,8 +48,9 @@ export async function applicationSearch(statusType, pageNumber = 1, pageSize = 1
     // Imprimir en la seccion derecha la primera oferta de la lista
     offerInfo.innerHTML = '';
     if(applications.result.data[0]){
-        let offerDescription = await getOfferById(applications.result.data[0].offerId);
-        offerInfo.innerHTML = offer(offerDescription);
+        console.log(applications.result.data[0].applicant.userId);
+        let offerDescription = await getResumeById(applications.result.data[0].applicant.userId);
+        offerInfo.innerHTML = await userProfile(offerDescription);
     }    
 }
 
@@ -90,23 +94,16 @@ function getCurrentStatusType() {
 export const selectOfferByApplication = async () => {
     let sidebar = document.getElementsByClassName("sidebar")[0];
     applicationClick();
-    let button = document.getElementById("applyOffer");
-    if (button) {
-    button.remove();
-    }
+
     sidebar.addEventListener("click", async (e) => {
         const jobCard = e.target.closest(".job-card");
         if (jobCard) {
             applicationClick();
             const offerInfo = document.getElementById('main_section'); 
-            let id = jobCard.getAttribute('offerId'); // Obtener el atributo offerId
-            let offerDescription = await getOfferById(id);
-            offerInfo.innerHTML = offer(offerDescription);
-            let button = document.getElementById("applyOffer");
-            if (button) {
-            button.remove();
-            }
+            let id = jobCard.getAttribute('userId'); // Obtener el atributo offerId
+            console.log(id)
+            let resumeDescription = await getResumeById(id);
+            offerInfo.innerHTML = await userProfile(resumeDescription);
         }
     });
-    
 };

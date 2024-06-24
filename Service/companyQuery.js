@@ -1,8 +1,6 @@
 const urlBase = "https://localhost:7292/api/Company";
 
 
-
-
 export const getCompanyByFilters = async (
     name, 
     pageNumber, 

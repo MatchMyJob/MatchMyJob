@@ -15,10 +15,31 @@ body {
     background: #000;
 }
 
+nav .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.3rem 1rem;
+    background: var(--semiblack);
+}
+
+nav .wrapper .left,
+nav .wrapper .right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
 nav .wrapper .left {
-    padding-left: 1rem;
+    padding-left: 3rem;
     display: flex;
     gap: 15rem;
+}
+nav .wrapper .right{
+    display: flex;
+    gap: 1rem;
 }
 
 nav .wrapper .left .input {
@@ -48,6 +69,58 @@ nav .wrapper .left .input i {
     color: rgb(199, 196, 196);
 }
 
+nav .wrapper .right .home,
+nav .wrapper .right .jobs,
+nav .wrapper .right .me,
+nav .wrapper .right .work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+nav .wrapper .right .home,
+nav .wrapper .right .jobs:hover,
+nav .wrapper .right .me .down:hover,
+nav .wrapper .right .work .down:hover {
+    color: #868d96;
+}
+
+nav .wrapper .right .jobs,
+nav .wrapper .right .work {
+    color: #868d96;
+}
+
+nav .wrapper .right .home i,
+nav .wrapper .right .jobs i {
+    font-size: 1.5rem;
+}
+
+
+nav .wrapper .right .me .down,
+nav .wrapper .right .work .down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #868d96;
+}
+
+nav .wrapper .right .me i:first-child {
+    background: #868d96;
+    color: #000;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .wrapper a {
     text-decoration: none;
     font-size: 0.7rem;
@@ -69,7 +142,6 @@ nav .wrapper .left .input i {
     width: 90%;
     overflow-y: hidden;
     overflow-x:hidden;
-    margin-bottom: 15px;
 }
 
 aside,
@@ -200,9 +272,7 @@ main .box .btn:hover {
     margin-bottom: 5px;
     color: rgb(199, 196, 196)
 }
-#contenedorFiltros{
-    box-shadow: 0 7px 10px -5px var(--green);
-}
+
 .description ul li::before {
     content: "•";
     margin-right: 5px;
@@ -311,9 +381,15 @@ h1 {
 }
 
 .status span {
-    background-color: var(--sblack);
+    background-color: #6d6363;
     padding: 5px 10px;
     font-size: 0.9em;
+    color: white;
+}
+
+
+.btn {
+    display: none;
 }
 
 
